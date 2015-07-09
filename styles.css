@@ -72,8 +72,12 @@ div.article-segment-description p {
 
 /* border styling */
 .border {
-    margin-top: 65px;
-    margin-bottom: 65px;
+    margin-top: 70px;
+    margin-bottom: 60px;
+}
+
+.bottom-border {
+    margin-bottom: 0px;
 }
 
 div.border {
@@ -86,7 +90,101 @@ div.border div {
     padding: 13px;
 }
 
+/* news sections styling */
+.news-sections {
+    margin-left: 25px;
+    margin-right: 25px;
+    vertical-align: central;
+    text-align: justify;
+}
 
+div.news-sections section {
+    display: inline-block;
+    vertical-align: top;
+}
+
+div.news-sections figure {
+    text-align: left;
+    display: inline-block;
+    background-color: #e2e2e2;
+    margin: 0px 15px;
+    padding-bottom: 30px;
+    box-sizing: padding-box;
+    overflow: visible;
+    width: 270px;
+    height: inherit;
+}
+
+div.figure-news {
+    text-align: center;
+}
+
+div.figure-news h2 {
+    padding: 40px 30px 30px 30px;
+}
+
+div.figure-news p {
+    padding: 0px 30px;
+}
+
+div.icon, div.news {
+    display: inline-block;
+}
+
+div.icon img {
+    background-color: black;
+    padding: 23px;
+}
+
+div.icon {
+    float: left;
+    width: 70px;
+    overflow: hidden;
+}
+
+div.news {
+    width: 315px;
+    box-sizing: padding-box;
+    padding-left: 30px;
+    padding-right: 20px;
+}
+
+/* news text styling */
+div.news-sections h2 {
+    padding-right: 30px;
+    font-size: 14pt;
+    text-align: left;
+    margin: 0px;
+}
+
+div.news-sections p {
+    text-align: left;
+    margin: 32px, 0px;
+}
+
+div.news-section a {
+    text-align: left;
+    position: relative;
+    bottom: 0;
+}
+
+div.figure-news a {
+    padding-left: 30px;
+}
+
+/* products column styling */
+h2.products {
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
+
+div.products {
+    margin: 6px;
+    padding: 12px 14px;
+    display: inline-block;
+    border: 1px solid;
+    border-color: #cecece;
+}
 
 
 
