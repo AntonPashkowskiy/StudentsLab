@@ -1,0 +1,46 @@
+﻿header.layout {
+    margin-top: 100px;
+    padding-bottom: 50px;
+}
+
+#sitename {
+    display: inline;
+    position: relative;
+
+    font-family: SourceSansProBold Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #434041;
+    
+    padding: 30px 40px;
+    bottom: 15px;
+
+    background-color: #ebebeb;
+}
+
+.header-links {
+    padding-top: 45px;
+    padding-bottom: 40px;
+
+    font-family: SourceSansProRegular Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header-links a {
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #d2d2d2;
+    border-top: 1px solid #d2d2d2;
+
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #969696;  
+}
+
+.header-links a:hover {
+    color: #ed3237;
+}
+

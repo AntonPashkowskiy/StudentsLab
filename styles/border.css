@@ -1,0 +1,37 @@
+﻿.border {
+    margin: 70px 25px 60px 25px;
+}
+
+.bottom-border {
+    margin-bottom: 0px;
+}
+
+div.border {
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+div.composite-border {
+    display: inline-block;
+    margin: 0px 10px;
+    padding: 13px;
+
+    font-family: SourceSansProBold Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11pt;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    color: #ffffff;
+    background-color: #ed3237;
+}
+
+hr.composite-border {
+    vertical-align: middle;
+
+    display: inline-block;
+    width: 43.70%;
+}
+
+div.composite-border:hover {
+    color: #a0a0a0;
+}

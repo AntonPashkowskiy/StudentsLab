@@ -1,0 +1,130 @@
+﻿.news-sections {
+    vertical-align: central;
+    text-align: justify;
+
+    margin-left: 25px;
+    margin-right: 25px;
+
+    font-family: SourceSansProRegular Verdana, Geneva, Tahoma, sans-serif;   
+}
+
+.news-sections section {
+    display: inline-block;
+    
+    text-align: left;
+    
+    width: 33%;
+    box-sizing: border-box;
+}
+
+.news-sections figure {
+    display: inline-block;
+    box-sizing: padding-box;
+    text-align: left;
+    
+    background-color: #e2e2e2;
+    margin: 0px 15px;
+    padding-bottom: 30px;
+    
+    overflow: visible;
+    width: 270px;
+    height: inherit;
+}
+
+div.block-news {
+    text-align: center;
+}
+
+div.icon img {  
+    padding: 23px;
+    background-color: black;
+}
+
+div.icon {
+    float: left;
+    overflow: hidden;
+}
+
+div.news {
+    box-sizing: padding-box;
+    
+    margin-left: 69px;
+    padding-left: 30px;
+    padding-right: 20px;
+}
+
+.news-sections h2 {
+    font-size: 14pt;
+    font-weight: bold;
+
+    margin: 0px;
+    padding-right: 30px;
+
+    font-size: 11pt;
+    text-transform: uppercase;
+    color: #434041;
+}
+
+.news-sections p {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    font-size: 10pt;
+    color: #676364;
+}
+
+a.news-reference {
+    position: relative;
+    bottom: 0;
+
+    font-size: 11pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #434041;
+}
+
+a.news-reference:hover {
+    color: #ed3237;
+}
+
+a.news-reference::after {
+    content: " \003E";
+    color: #ed3237;
+}
+
+.block-news h2 {
+    padding: 40px 30px 30px 30px;
+}
+
+.block-news p {
+    padding: 0px 30px;
+}
+
+.block-news a {
+    padding-left: 30px;
+}
+
+.products {
+    font-family: SourceSansProBold Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #434041; 
+}
+
+h2.products {
+    margin-top: -20px;
+    margin-bottom: 30px;
+    color: #ed3237;
+}
+
+div.products {
+    display: inline-block;
+    
+    margin: 6px;
+    padding: 12px 14px;
+ 
+    border: 1px solid;
+    border-color: #cecece;
+}

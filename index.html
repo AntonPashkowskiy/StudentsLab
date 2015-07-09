@@ -3,10 +3,15 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Sitename</title>
-	<link href="styles.css" rel="stylesheet" type="text/css"/>
+	<link href="styles/layout.css" rel="stylesheet" type="text/css"/>
+	<link href="styles/header.css" rel="stylesheet" type="text/css"/>
+	<link href="styles/border.css" rel="stylesheet" type="text/css" />
+	<link href="styles/news.css" rel="stylesheet" type="text/css" />
+	<link href="styles/articles.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-	<header class="maket content">
+
+	<header class="layout layout-content">
 		<div id="sitename">
 			Sitename
 		</div>
@@ -21,31 +26,39 @@
 			<img src="images/banner.jpg">
 		</div>
 	</header>
-	<article class="maket content">
+
+	<article class="layout layout-content">
+
 		<div class="article-segment-description">
 			<h1>Lorem ipsum</h1>
 			<p>
-				Donec nec justo eget felis facilisis fermentum.<br/>
+				Donec nec justo eget felis facilisis fermentum.<br />
 				Aliquam porttit or mauris sit amet orci. Aenean dignissim pellentesque felis.
 			</p>
 		</div>
+
 		<div class="border">
-			<div>
+			<hr class="composite-border"/>
+			<div class="composite-border">
 				Read more
 			</div>
+			<hr class="composite-border"/>
 		</div>
+
 		<div>
+
 			<div class="article-segment-description">
 				<h1>Vivamus vest </h1>
 				<p>
-					Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit.<br/>
+					Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit.<br />
 					Pellentesque egestas sem. Suspendisse commodo ullamcorper magna.
 				</p>
 			</div>
+
 			<div class="news-sections">
 				<section>
 					<div class="icon">
-						<img src="images/icon1.png"/>
+						<img src="images/icon1.png" />
 					</div>
 					<div class="news">
 						<h2>
@@ -54,7 +67,7 @@
 						<p>
 							Tegestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, fauc
 						</p>
-						<a href="#">more info</a>
+						<a href="#" class="news-reference">More info</a>
 					</div>
 				</section>
 				<section>
@@ -68,7 +81,7 @@
 						<p>
 							Tegestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, fauc
 						</p>
-						<a href="#">more info</a>
+						<a href="#" class="news-reference">More info</a>
 					</div>
 				</section>
 				<section>
@@ -80,29 +93,33 @@
 						<p>
 							Tegestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, fauc
 						</p>
-						<a href="#">more info</a>
+						<a href="#" class="news-reference">More info</a>
 					</div>
 				</section>
 			</div>
 		</div>
+
 		<hr class="border"/>
+
 		<div>
+
 			<div class="article-segment-description">
 				<h1>Cras iaculis</h1>
 				<p>
 					Fusce lobortis lorem at ipsum semper sagittis
 				</p>
 			</div>
-			<div class="news-sections figure-news">
+
+			<div class="news-sections block-news">
 				<figure>
 					<h2>Vestibulum commodo  felis quis tortor</h2>
 					<div>
-						<img src="images/image1.jpg"/>
+						<img src="images/image1.jpg" />
 					</div>
 					<p>
 						Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.
 					</p>
-					<a href="#">more info</a>
+					<a href="#" class="news-reference">More info</a>
 				</figure>
 				<figure>
 					<h2>Donec quis dui at  dolor tempor interdum</h2>
@@ -112,7 +129,7 @@
 					<p>
 						Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus
 					</p>
-					<a href="#">more info</a>
+					<a href="#" class="news-reference">More info</a>
 				</figure>
 				<figure>
 					<h2>Fusce lobortis  lorem at ipsum semper</h2>
@@ -122,38 +139,45 @@
 					<p>
 						Faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique
 					</p>
-					<a href="#">more info</a>
+					<a href="#" class="news-reference">More info</a>
 				</figure>
 			</div>
 		</div>
+
 		<hr class="border"/>
+
 		<div>
 			<div class="article-segment-description">
 				<h1>Nunc digniss</h1>
 				<p>
-					Praesent dapibus, neque id cursus faucibus,<br/>
-					tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat<br/>
+					Praesent dapibus, neque id cursus faucibus,<br />
+					tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat<br />
 					volutpat. Nam dui mi, tincidunt quis, accumsan porttitor
 				</p>
 			</div>
-			<h2 class="products">our products</h2>
-			<div class="products">integer vit</div>
-			<div class="products">donce ametuno</div>
-			<br/>
-			<div class="products">voluptanin</div>
-			<div class="products">tincidun</div>
-			<div class="products">porttion souti</div>
-			<br/>
-			<div class="products">namdui sinosi</div>
-			<div class="products">fermnutin</div>
+			<h2 class="products">Our products</h2>
+			<div class="products">Integer vit</div>
+			<div class="products">Donce ametuno</div>
+			<br />
+			<div class="products">Voluptanin</div>
+			<div class="products">Tincidun</div>
+			<div class="products">Porttion souti</div>
+			<br />
+			<div class="products">Namdui sinosi</div>
+			<div class="products">Fermnutin</div>
 		</div>
+
 		<div class="border bottom-border">
-			<div>
+			<hr class="composite-border"/>
+			<div class="composite-border">
 				View more
 			</div>
+			<hr class="composite-border">
 		</div>
+
 	</article>
-	<footer class="maket footer">
+
+	<footer class="layout layout-footer">
 		<p>
 			Copyright(c) website name.<br/>
 			Designed by: www.alltemplateneeds.com  /  Images from: www.wallpaperswide.com

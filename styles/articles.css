@@ -1,0 +1,18 @@
+﻿.article-segment-description {
+    margin-bottom: 50px;
+    font-family: SourceSansProBold Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.article-segment-description h1 {
+    font-size: 22pt;
+    text-transform: uppercase;
+    color: #434041;
+}
+
+.article-segment-description p {
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+    font-size: 12pt;
+    color: #676364;
+}

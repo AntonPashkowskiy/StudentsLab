@@ -1,0 +1,33 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-image: url( '../images/fon.jpg' );
+    text-align: center;
+}
+
+.layout {
+    width: 1227px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.layout-content {
+    background-color: #ebebeb;
+}
+
+.layout-footer {
+    margin-top: 40px;
+    color: #ebebeb;
+}
+
+article.layout {
+    padding-bottom: 80px;
+}
+
+
+
+
+
+
