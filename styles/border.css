@@ -1,5 +1,6 @@
 ﻿.border {
-    margin: 70px 25px 60px 25px;
+    margin: 70px 25px 60px;
+    width: 96%;
 }
 
 .bottom-border {
@@ -11,10 +12,23 @@ div.border {
     padding-bottom: 13px;
 }
 
+hr.border, .composite-border-container hr {
+    border: none;
+    height: 1px;
+    color: #c2c2c2;
+    background-color: #c2c2c2;
+}
+
+.composite-border-container hr {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
 div.composite-border {
     display: inline-block;
     margin: 0px 10px;
     padding: 13px;
+    width: 10%;
 
     font-family: SourceSansProBold Verdana, Geneva, Tahoma, sans-serif;
     font-size: 11pt;
@@ -23,13 +37,16 @@ div.composite-border {
 
     color: #ffffff;
     background-color: #ed3237;
+    border-radius: 5px;
+    -webkit-box-shadow: -5px 5px 0px 0px rgba( 0, 0, 0, 0.1 );
+    -moz-box-shadow: -5px 5px 0px 0px rgba( 0, 0, 0, 0.1 );
+    box-shadow: -5px 5px 0px 0px rgba( 0, 0, 0, 0.1 );
 }
 
-hr.composite-border {
+.composite-border-container {
+    display: inline-block; 
     vertical-align: middle;
-
-    display: inline-block;
-    width: 43.70%;
+    width: 42%;
 }
 
 div.composite-border:hover {

@@ -1,34 +1,39 @@
 ﻿.news-sections {
     vertical-align: central;
-    text-align: justify;
+    text-align: center;
 
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
 
     font-family: SourceSansProRegular Verdana, Geneva, Tahoma, sans-serif;   
 }
 
 .news-sections section {
     display: inline-block;
-    
+ 
     text-align: left;
     
     width: 33%;
-    box-sizing: border-box;
+    box-sizing: padding-box;
 }
 
 .news-sections figure {
     display: inline-block;
     box-sizing: padding-box;
-    text-align: left;
-    
-    background-color: #e2e2e2;
-    margin: 0px 15px;
-    padding-bottom: 30px;
-    
     overflow: visible;
+    text-align: left;
+    vertical-align: top;
+    
+    margin: 0px 15px;
+    padding-bottom: 30px;  
     width: 270px;
     height: inherit;
+
+    background-color: #e2e2e2;
+    border-radius: 10px 0px 10px 10px;
+    -webkit-box-shadow: -10px 10px 0px 0px rgba( 0, 0, 0, 0.1 );
+    -moz-box-shadow: -10px 10px 0px 0px rgba( 0, 0, 0, 0.1 );
+    box-shadow: -10px 10px 0px 0px rgba( 0, 0, 0, 0.1 );
 }
 
 div.block-news {
@@ -37,7 +42,14 @@ div.block-news {
 
 div.icon img {  
     padding: 23px;
-    background-color: black;
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+    background-color: #373435;
+    border-radius: 10px 0px 10px 10px;
+   -webkit-box-shadow: -10px 10px 0px 0px rgba( 0, 0, 0, 0.1 );
+    -moz-box-shadow: -10px 10px 0px 0px rgba( 0, 0, 0, 0.1 );
+    box-shadow: -10px 10px 0px 0px rgba( 0, 0, 0, 0.1 );
 }
 
 div.icon {
@@ -48,8 +60,7 @@ div.icon {
 div.news {
     box-sizing: padding-box;
     
-    margin-left: 69px;
-    padding-left: 30px;
+    margin-left: 109px;
     padding-right: 20px;
 }
 
@@ -66,6 +77,7 @@ div.news {
 }
 
 .news-sections p {
+
     margin-top: 30px;
     margin-bottom: 30px;
 
@@ -127,4 +139,8 @@ div.products {
  
     border: 1px solid;
     border-color: #cecece;
+    border-radius: 5px;
+    -webkit-box-shadow: -5px 5px 0px 0px rgba( 0, 0, 0, 0.1 );
+    -moz-box-shadow: -5px 5px 0px 0px rgba( 0, 0, 0, 0.1 );
+    box-shadow: -5px 5px 0px 0px rgba( 0, 0, 0, 0.1 );
 }
