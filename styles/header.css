@@ -4,39 +4,41 @@
 }
 
 #sitename {
-    display: inline;
-    position: relative;
-
     font-family: SourceSansProBold Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
     font-size: 40px;
-    text-transform: uppercase;
-    color: #434041;
-    
-    padding: 30px 40px;
+    font-weight: bold;
+
+    position: relative;
     bottom: 30px;
 
-    background-color: #ebebeb;
+    display: inline;
+
+    padding: 30px 40px;
+
+    text-transform: uppercase;
+
+    color: #434041;
     border-radius: 5px;
-    -webkit-box-shadow: -10px 10px 0px 0px rgba( 0, 0, 0, 0.1 );
-    -moz-box-shadow: -10px 10px 0px 0px rgba( 0, 0, 0, 0.1 );
-    box-shadow: -10px 10px 0px 0px rgba( 0, 0, 0, 0.1 );
+    background-color: #ebebeb;
+    -webkit-box-shadow: -10px 10px 0 0 rgba( 0, 0, 0, .1 );
+    -moz-box-shadow: -10px 10px 0 0 rgba( 0, 0, 0, .1 );
+    box-shadow: -10px 10px 0 0 rgba( 0, 0, 0, .1 );
 }
 
 #banner {
-    border-radius: 10px 0px 10px 10px;
-    -webkit-box-shadow: -10px 10px 0px 0px rgba( 0, 0, 0, 0.1 );
-    -moz-box-shadow: -10px 10px 0px 0px rgba( 0, 0, 0, 0.1 );
-    box-shadow: -10px 10px 0px 0px rgba( 0, 0, 0, 0.1 );
+    border-radius: 10px 0 10px 10px;
+    -webkit-box-shadow: -10px 10px 0 0 rgba( 0, 0, 0, .1 );
+    -moz-box-shadow: -10px 10px 0 0 rgba( 0, 0, 0, .1 );
+    box-shadow: -10px 10px 0 0 rgba( 0, 0, 0, .1 );
 }
 
 .header-links {
-    margin-top: 45px;
-    margin-bottom: 40px;
-
     font: 17px SourceSansProRegular Verdana, Geneva, Tahoma, sans-serif;
     font-family: SourceSansProRegular Verdana, Geneva, Tahoma, sans-serif;
     font-size: 17px;
+
+    margin-top: 45px;
+    margin-bottom: 40px;
 }
 
 .header-links a {
@@ -45,17 +47,18 @@
     padding-top: 10px;
     padding-bottom: 10px;
 
-    border-bottom: 1px solid #d2d2d2;
-    border-top: 1px solid #d2d2d2;
-
-    text-transform: uppercase;
     text-decoration: none;
-    color: #969696;  
+    text-transform: uppercase;
+
+    color: #969696;
+    border-top: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
 }
 
 .header-links a:link {
-    color: #969696;
     text-decoration: none;
+
+    color: #969696;
 }
 
 .header-links a:visited {

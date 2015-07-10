@@ -1,10 +1,10 @@
 ﻿.border {
-    margin: 70px 25px 60px;
     width: 96%;
+    margin: 70px 25px 60px;
 }
 
 .bottom-border {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 div.border {
@@ -12,10 +12,11 @@ div.border {
     padding-bottom: 13px;
 }
 
-hr.border, .composite-border-container hr {
-    border: none;
+hr.border {
     height: 1px;
+
     color: #c2c2c2;
+    border: none;
     background-color: #c2c2c2;
 }
 
@@ -25,28 +26,35 @@ hr.border, .composite-border-container hr {
 }
 
 div.composite-border {
-    display: inline-block;
-    margin: 0px 10px;
-    padding: 13px;
-    width: 10%;
-
     font-family: SourceSansProBold Verdana, Geneva, Tahoma, sans-serif;
     font-size: 11pt;
     font-weight: bold;
+
+    display: inline-block;
+
+    width: 10%;
+    margin: 0 10px;
+    padding: 13px;
+
     text-transform: uppercase;
 
-    color: #ffffff;
-    background-color: #ed3237;
+    color: #fff;
     border-radius: 5px;
-    -webkit-box-shadow: -5px 5px 0px 0px rgba( 0, 0, 0, 0.1 );
-    -moz-box-shadow: -5px 5px 0px 0px rgba( 0, 0, 0, 0.1 );
-    box-shadow: -5px 5px 0px 0px rgba( 0, 0, 0, 0.1 );
+    background-color: #ed3237;
+    -webkit-box-shadow: -5px 5px 0 0 rgba( 0, 0, 0, .1 );
+    -moz-box-shadow: -5px 5px 0 0 rgba( 0, 0, 0, .1 );
+    box-shadow: -5px 5px 0 0 rgba( 0, 0, 0, .1 );
 }
 
 .composite-border-container {
-    display: inline-block; 
-    vertical-align: middle;
+    display: inline-block;
+
     width: 42%;
+    height: 38px;
+
+    vertical-align: middle;
+
+    background: url('../images/border-image.jpg') repeat-x;
 }
 
 div.composite-border:hover {

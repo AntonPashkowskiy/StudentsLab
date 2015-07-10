@@ -1,17 +1,18 @@
 ﻿* {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 #body {
-    background-image: url( '../images/fon.jpg' );
     text-align: center;
+
+    background-image: url( '../images/fon.jpg' );
 }
 
 .layout {
     width: 1227px;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
 }
 
 .layout-content {
@@ -19,10 +20,12 @@
 }
 
 .layout-footer {
+    font: 12px SourceSansProRegular Verdana, Geneva, Tahoma, sans-serif;
+
     margin-top: 40px;
     margin-bottom: 55px;
-    color: #ebebeb;
-    font: 12px SourceSansProRegular Verdana, Geneva, Tahoma, sans-serif;;
+
+    color: #ebebeb;;
 }
 
 article.layout {

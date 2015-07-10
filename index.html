@@ -8,8 +8,9 @@
 	<link href="styles/border.css" rel="stylesheet" type="text/css" />
 	<link href="styles/news.css" rel="stylesheet" type="text/css" />
 	<link href="styles/articles.css" rel="stylesheet" type="text/css"/>
+	<link href="styles/reset.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body id="body">
 
 	<header class="layout layout-content">
 		<div id="sitename">
@@ -23,7 +24,7 @@
 			<a href="#">contact</a>
 		</nav>
 		<div>
-			<img src="images/banner.jpg">
+			<img id="banner" src="images/banner.jpg">
 		</div>
 	</header>
 
@@ -38,11 +39,13 @@
 		</div>
 
 		<div class="border">
-			<hr class="composite-border"/>
+			<div class="composite-border-container">
+			</div>
 			<div class="composite-border">
 				Read more
 			</div>
-			<hr class="composite-border"/>
+			<div class="composite-border-container">
+			</div>
 		</div>
 
 		<div>
@@ -65,7 +68,8 @@
 							Fusce pellentesque  suscipit nibh
 						</h2>
 						<p>
-							Tegestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, fauc
+							Tegestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue.
+							Morbi purus libero, fauc
 						</p>
 						<a href="#" class="news-reference">More info</a>
 					</div>
@@ -79,7 +83,8 @@
 							Integer vitae libero  ac risus egestas
 						</h2>
 						<p>
-							Tegestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, fauc
+							Tegestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue.
+							Morbi purus libero, fauc
 						</p>
 						<a href="#" class="news-reference">More info</a>
 					</div>
@@ -91,7 +96,8 @@
 					<div class="news">
 						<h2>Vestibulum commodo  felis quis tort</h2>
 						<p>
-							Tegestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, fauc
+							Tegestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue.
+							Morbi purus libero, fauc
 						</p>
 						<a href="#" class="news-reference">More info</a>
 					</div>
@@ -117,7 +123,8 @@
 						<img src="images/image1.jpg" />
 					</div>
 					<p>
-						Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.
+						Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna.
+						Etiam pellentesque mauris ut lectus.
 					</p>
 					<a href="#" class="news-reference">More info</a>
 				</figure>
@@ -127,7 +134,8 @@
 						<img src="images/image2.jpg" />
 					</div>
 					<p>
-						Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula. Integer adipiscing risus
+						Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper
+						vehicula. Integer adipiscing risus
 					</p>
 					<a href="#" class="news-reference">More info</a>
 				</figure>
@@ -137,7 +145,8 @@
 						<img src="images/image3.jpg" />
 					</div>
 					<p>
-						Faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis. Vivamus a mauris eget arcu gravida tristique
+						Faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis.
+						Vivamus a mauris eget arcu gravida tristique
 					</p>
 					<a href="#" class="news-reference">More info</a>
 				</figure>
@@ -168,11 +177,13 @@
 		</div>
 
 		<div class="border bottom-border">
-			<hr class="composite-border"/>
+			<div class="composite-border-container">
+			</div>
 			<div class="composite-border">
 				View more
 			</div>
-			<hr class="composite-border">
+			<div class="composite-border-container">
+			</div>
 		</div>
 
 	</article>
