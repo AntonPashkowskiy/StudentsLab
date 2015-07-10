@@ -77,7 +77,6 @@ div.news {
 }
 
 .news-sections p {
-
     margin-top: 30px;
     margin-bottom: 30px;
 
@@ -93,6 +92,15 @@ a.news-reference {
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
+    color: #434041;
+}
+
+a.news-reference:link {
+    color: #434041;
+    text-decoration: none;
+}
+
+a.news-reference:visited {
     color: #434041;
 }
 

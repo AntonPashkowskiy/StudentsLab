@@ -34,7 +34,9 @@
     margin-top: 45px;
     margin-bottom: 40px;
 
+    font: 17px SourceSansProRegular Verdana, Geneva, Tahoma, sans-serif;
     font-family: SourceSansProRegular Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 17px;
 }
 
 .header-links a {
@@ -49,6 +51,15 @@
     text-transform: uppercase;
     text-decoration: none;
     color: #969696;  
+}
+
+.header-links a:link {
+    color: #969696;
+    text-decoration: none;
+}
+
+.header-links a:visited {
+    color: #969696;
 }
 
 .header-links a:hover {
