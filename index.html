@@ -9,97 +9,95 @@
 	<link href="styles/news.css" rel="stylesheet" type="text/css" />
 	<link href="styles/articles.css" rel="stylesheet" type="text/css"/>
 	<link href="styles/reset.css" rel="stylesheet" type="text/css" />
+	<link href="styles/fonts.css" rel="stylesheet" type="text/css"/>
 </head>
-<body id="body">
+<body class="page-body">
 
-	<header class="layout layout-content">
-		<div id="sitename">
+	<header class="header layout layout-content">
+		<div class="sitename">
 			Sitename
 		</div>
 		<nav class="header-links">
-			<a href="#">home</a>
-			<a href="#">about</a>
-			<a href="#">series</a>
-			<a href="#">products</a>
-			<a href="#">contact</a>
+			<a class="link" href="#">home</a>
+			<a class="link" href="#">about</a>
+			<a class="link" href="#">series</a>
+			<a class="link" href="#">products</a>
+			<a class="link" href="#">contact</a>
 		</nav>
-		<div>
-			<img id="banner" src="images/banner.jpg">
-		</div>
 	</header>
 
-	<article class="layout layout-content">
+	<article class="article layout layout-content">
+		<div>
+			<img class="banner" src="images/banner.jpg" alt="banner image don't loaded">
+		</div>
 
 		<div class="article-segment-description">
-			<h1>Lorem ipsum</h1>
-			<p>
-				Donec nec justo eget felis facilisis fermentum.<br />
+			<h1 class="title">Lorem ipsum</h1>
+			<p  class="description">
+				Donec nec justo eget felis facilisis fermentum.
 				Aliquam porttit or mauris sit amet orci. Aenean dignissim pellentesque felis.
 			</p>
 		</div>
 
-		<div class="border">
-			<div class="composite-border-container">
-			</div>
-			<div class="composite-border">
-				Read more
-			</div>
-			<div class="composite-border-container">
+		<div class="view-more-section">
+			<div class="view-more-button">
+				<a class="link" href="#">Read more</a>
 			</div>
 		</div>
 
 		<div>
-
 			<div class="article-segment-description">
-				<h1>Vivamus vest </h1>
-				<p>
-					Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit.<br />
+				<h1 class="title">Vivamus vest </h1>
+				<p  class="description">
+					Sed adipiscing ornare risus. Morbi est est, blandit sit amet, sagittis vel, euismod vel, velit.
 					Pellentesque egestas sem. Suspendisse commodo ullamcorper magna.
 				</p>
 			</div>
 
 			<div class="news-sections">
-				<section>
-					<div class="icon">
-						<img src="images/icon1.png" />
+				<section class="news-section">
+					<div class="icon-block">
+						<img class="icon" src="images/pen-icon.png" alt="no icon"/>
 					</div>
-					<div class="news">
-						<h2>
+					<div class="news-block">
+						<h2 class="news-title">
 							Fusce pellentesque  suscipit nibh
 						</h2>
-						<p>
+						<p  class="news-text">
 							Tegestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue.
 							Morbi purus libero, fauc
 						</p>
-						<a href="#" class="news-reference">More info</a>
+						<a href="#" class="news-link">More info</a>
 					</div>
 				</section>
-				<section>
-					<div class="icon">
-						<img src="images/icon2.png" />
+				<section class="news-section">
+					<div class="icon-block">
+						<img class="icon" src="images/man-icon.png" alt="no icon"/>
 					</div>
-					<div class="news">
-						<h2>
+					<div class="news-block">
+						<h2 class="news-title">
 							Integer vitae libero  ac risus egestas
 						</h2>
-						<p>
+						<p  class="news-text">
 							Tegestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue.
 							Morbi purus libero, fauc
 						</p>
-						<a href="#" class="news-reference">More info</a>
+						<a href="#" class="news-link">More info</a>
 					</div>
 				</section>
-				<section>
-					<div class="icon">
-						<img src="images/icon3.png" />
+				<section class="news-section">
+					<div class="icon-block">
+						<img class="icon" src="images/setting-icon.png" alt="no icon"/>
 					</div>
-					<div class="news">
-						<h2>Vestibulum commodo  felis quis tort</h2>
-						<p>
+					<div class="news-block">
+						<h2 class="news-title">
+							Vestibulum commodo  felis quis tort
+						</h2>
+						<p  class="news-text">
 							Tegestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue.
 							Morbi purus libero, fauc
 						</p>
-						<a href="#" class="news-reference">More info</a>
+						<a href="#" class="news-link">More info</a>
 					</div>
 				</section>
 			</div>
@@ -108,84 +106,84 @@
 		<hr class="border"/>
 
 		<div>
-
-			<div class="article-segment-description">
-				<h1>Cras iaculis</h1>
-				<p>
+			<div class="article-segment-description block-news-description">
+				<h1 class="title">Cras iaculis</h1>
+				<p  class="description">
 					Fusce lobortis lorem at ipsum semper sagittis
 				</p>
 			</div>
 
 			<div class="news-sections block-news">
-				<figure>
-					<h2>Vestibulum commodo  felis quis tortor</h2>
+				<figure class="block-news-section">
+					<h2 class="news-title">
+						Vestibulum commodo  felis quis tortor
+					</h2>
 					<div>
-						<img src="images/image1.jpg" />
+						<img src="images/hitman-img.jpg" alt="no image"/>
 					</div>
-					<p>
+					<p  class="news-text">
 						Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna.
 						Etiam pellentesque mauris ut lectus.
 					</p>
-					<a href="#" class="news-reference">More info</a>
+					<a href="#" class="news-link">More info</a>
 				</figure>
-				<figure>
-					<h2>Donec quis dui at  dolor tempor interdum</h2>
+				<figure class="block-news-section">
+					<h2 class="news-title">
+						Donec quis dui at  dolor tempor interdum
+					</h2>
 					<div>
-						<img src="images/image2.jpg" />
+						<img src="images/girl-img.jpg" alt="no image"/>
 					</div>
-					<p>
+					<p  class="news-text">
 						Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper
 						vehicula. Integer adipiscing risus
 					</p>
-					<a href="#" class="news-reference">More info</a>
+					<a href="#" class="news-link">More info</a>
 				</figure>
-				<figure>
-					<h2>Fusce lobortis  lorem at ipsum semper</h2>
+				<figure class="block-news-section">
+					<h2 class="news-title">
+						Fusce lobortis  lorem at ipsum semper
+					</h2>
 					<div>
-						<img src="images/image3.jpg" />
+						<img src="images/girl2-img.jpg" alt="no image"/>
 					</div>
-					<p>
+					<p  class="news-text">
 						Faucibus non, congue vel, arcu. Ut scelerisque hendrerit tellus. Integer sagittis.
 						Vivamus a mauris eget arcu gravida tristique
 					</p>
-					<a href="#" class="news-reference">More info</a>
+					<a href="#" class="news-link">More info</a>
 				</figure>
 			</div>
 		</div>
 
-		<hr class="border"/>
+		<hr class="border block-news-border"/>
 
 		<div>
 			<div class="article-segment-description">
-				<h1>Nunc digniss</h1>
-				<p>
-					Praesent dapibus, neque id cursus faucibus,<br />
-					tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat<br />
+				<h1 class="title">Nunc digniss</h1>
+				<p  class="description">
+					Praesent dapibus, neque id cursus faucibus,
+					tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat
 					volutpat. Nam dui mi, tincidunt quis, accumsan porttitor
 				</p>
 			</div>
-			<h2 class="products">Our products</h2>
-			<div class="products">Integer vit</div>
-			<div class="products">Donce ametuno</div>
-			<br />
-			<div class="products">Voluptanin</div>
-			<div class="products">Tincidun</div>
-			<div class="products">Porttion souti</div>
-			<br />
-			<div class="products">Namdui sinosi</div>
-			<div class="products">Fermnutin</div>
+			<h2 class="products products-title">Our products</h2>
+			<div class="products product">Integer vit</div>
+			<div class="products product">Donce ametuno</div>
+			<br/>
+			<div class="products product">Voluptanin</div>
+			<div class="products product">Tincidun</div>
+			<div class="products product">Porttion souti</div>
+			<br/>
+			<div class="products product">Namdui sinosi</div>
+			<div class="products product">Fermnutin</div>
 		</div>
 
-		<div class="border bottom-border">
-			<div class="composite-border-container">
-			</div>
-			<div class="composite-border">
-				View more
-			</div>
-			<div class="composite-border-container">
+		<div class="view-more-section bottom-section">
+			<div class="view-more-button">
+				<a class="link" href="#">Read more</a>
 			</div>
 		</div>
-
 	</article>
 
 	<footer class="layout layout-footer">

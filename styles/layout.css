@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-#body {
+.page-body {
     text-align: center;
 
     background-image: url( '../images/fon.jpg' );
@@ -28,7 +28,7 @@
     color: #ebebeb;;
 }
 
-article.layout {
+.article.layout {
     padding-bottom: 80px;
 }
 

@@ -1,10 +1,23 @@
-﻿.article-segment-description {
+﻿.banner {
+    margin-bottom: 50px;
+
+    border-radius: 10px 0px 10px 10px;
+    -webkit-box-shadow: -10px 10px 0 0 rgba( 0, 0, 0, .1 );
+    -moz-box-shadow: -10px 10px 0 0 rgba( 0, 0, 0, .1 );
+    box-shadow: -10px 10px 0 0 rgba( 0, 0, 0, .1 );
+}
+
+.article-segment-description {
     font-family: SourceSansProBold Verdana, Geneva, Tahoma, sans-serif;
 
     margin-bottom: 50px;
 }
 
-.article-segment-description h1 {
+.article-segment-description.block-news-description {
+    margin-bottom: 20px;
+}
+
+.article-segment-description .title {
     font-size: 22pt;
     font-weight: bold;
 
@@ -15,11 +28,13 @@
     color: #434041;
 }
 
-.article-segment-description p {
+.article-segment-description .description {
     font-size: 12pt;
 
-    margin-top: 10px;
-    margin-bottom: 5px;
+    display: inline-block;
+
+    margin: 10px 0px 5px;
+    width: 50%;
 
     color: #676364;
 }
