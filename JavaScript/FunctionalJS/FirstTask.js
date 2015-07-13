@@ -1,42 +1,44 @@
 /**
  * Created by anton.pashkouski on 13.07.2015.
  */
-"use strict";
+(function(){
+    "use strict";
 
-// Task 1: Partial Application
-function removeFirstArgument( argument, targetFunction ) {
-    return function() {
-        return targetFunction.apply( this, argumentsToArray( arguments ).concat( argument ) );
-    }
-}
-
-// Function create array from of the arguments object.
-function argumentsToArray( argumentsObject ) {
-    var argumentsArray = [];
-
-    for( var i = 0; i < argumentsObject.length; i++ ) {
-        argumentsArray.push( argumentsObject[ i ] );
+    // Task 1: Partial Application
+    function removeFirstArgument( argument, targetFunction ) {
+        return function() {
+            return targetFunction.apply( this, argumentsToArray( arguments ).concat( argument ) );
+        }
     }
 
-    return argumentsArray;
-}
+    // Function create array from of the arguments object.
+    function argumentsToArray( argumentsObject ) {
+        var argumentsArray = [];
 
-function sum() {
-    var result = 0;
+        for( var i = 0; i < argumentsObject.length; i++ ) {
+            argumentsArray.push( argumentsObject[ i ] );
+        }
 
-    for( var i = 0; i < arguments.length; i++ ) {
-        result += arguments[ i ];
+        return argumentsArray;
     }
 
-    return result;
-}
+    function sum() {
+        var result = 0;
 
-var sumResult = sum( 1, 2, 3, 4, 5 );
+        for( var i = 0; i < arguments.length; i++ ) {
+            result += arguments[ i ];
+        }
 
-alert( 'Result without partial function using: ' + sumResult );
+        return result;
+    }
 
-var partialSum = removeFirstArgument( 1, sum );
-sumResult = partialSum( 2, 3, 4, 5 );
+    var sumResult = sum( 1, 2, 3, 4, 5 );
 
-alert( 'Result with partial function using: ' + sumResult );
+    alert( 'Result without partial function using: ' + sumResult );
+
+    var partialSum = removeFirstArgument( 1, sum );
+    sumResult = partialSum( 2, 3, 4, 5 );
+
+    alert( 'Result with partial function using: ' + sumResult );
+})();
 
