@@ -2,10 +2,18 @@
  * Created by anton.pashkouski on 13.07.2015.
  */
 (function(){
+    'use strict';
+    // Adding function to the namespace.
+    FunctionalJS.unfold = unfold;
+
     // Task 4: linear unfold
     // unfoldState[ 1 ] - next state value
     // unfoldState[ 2 ] - next element of the sequence
     function unfold( initialValue, unfoldFunction ) {
+        if( typeof unfoldFunction !== 'function' ) {
+            return undefined;
+        }
+
         var unfoldResult = [];
         var unfoldState;
 
@@ -25,7 +33,7 @@
 
     // Unfold function example
     function unfoldIncreasingSequence( number ) {
-        var nextState = {}
+        var nextState = {};
         nextState[ 1 ] = number - 1;
         nextState[ 2 ] = number - 1;
 
@@ -37,5 +45,5 @@
     }
 
     var numberArray = unfold( 10, unfoldIncreasingSequence );
-    alert( numberArray );
+    alert( 'Unfold result: ' + numberArray );
 })();

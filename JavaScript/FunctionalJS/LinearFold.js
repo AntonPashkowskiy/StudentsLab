@@ -2,17 +2,23 @@
  * Created by anton.pashkouski on 13.07.2015.
  */
 (function(){
+    'use strict';
+    // Adding function to the namespace.
+    FunctionalJS.fold = fold;
+    
     // Task 3: linear fold
-    function fold( array, initialCounterValue, foldFunction ) {
-        if( typeof foldFunction !== 'function' || array === undefined || array === null ) {
+    function fold( targetArray, initialCounterValue, foldFunction ) {
+        if( !Array.isArray( targetArray ) || typeof foldFunction !== 'function' ) {
             return undefined;
         }
 
-        for( var i = 0; i < array.length; i++ ) {
-            initialCounterValue = foldFunction( initialCounterValue, array[ i ] );
+        var counterValue = initialCounterValue;
+
+        for( var i = 0; i < targetArray.length; i++ ) {
+            counterValue = foldFunction( counterValue, targetArray[ i ] );
         }
 
-        return initialCounterValue;
+        return counterValue;
     }
 
     var numbersArray = [ 1, 2, 3, 4, 5 ];

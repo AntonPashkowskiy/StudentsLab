@@ -2,7 +2,9 @@
  * Created by anton.pashkouski on 13.07.2015.
  */
 (function() {
-    "use strict";
+    'use strict';
+    // Adding function to the namespace.
+    FunctionalJS.carry = carry;
 
     // Task 2: Carrying
     function carry( targetFunction, expectedNumberArguments ) {
