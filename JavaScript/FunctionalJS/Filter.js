@@ -22,17 +22,4 @@
 
         return result;
     }
-
-    var array = [ 3, 5, 12, 8, 1, 11, 5, 7, 14 ];
-    var resultArray = filter( array, function( x ) {
-        return ( x % 2 === 1 );
-    });
-
-    alert( 'My filter result: ' + resultArray );
-
-    resultArray = array.filter( function( x ) {
-        return ( x % 2 === 1 );
-    });
-
-    alert( 'Array.prototype.filter result: ' + resultArray );
 })();

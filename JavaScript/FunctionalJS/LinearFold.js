@@ -20,17 +20,4 @@
 
         return counterValue;
     }
-
-    var numbersArray = [ 1, 2, 3, 4, 5 ];
-    var stringsArray = [ '1', '2', '3', '4', '5' ];
-
-    alert( 'Fold example 1 [Numbers]: ' +
-        fold( numbersArray, 1, function( counter, currentValue ) {
-            return counter * currentValue;
-    }));
-
-    alert( 'Fold example 2 [Strings]: ' +
-        fold( stringsArray, 'resulting string - ', function( counter, currentValue ) {
-            return counter + currentValue;
-    }));
 })();

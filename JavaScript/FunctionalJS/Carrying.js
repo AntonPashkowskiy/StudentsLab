@@ -26,28 +26,6 @@
 
         return getCurryingFunction( [] );
     }
-
-    // Function for example
-    function stringsConcat( firstString, secondString, thirdString ) {
-        var result = "";
-
-        for( var i = 0; i < arguments.length; i++ ) {
-            result += arguments[ i ];
-        }
-
-        return result;
-    }
-
-    var resultingString = stringsConcat( 'I\'m ', 'little ', 'pony!' );
-    alert( 'Example 1: Result without carrying: ' + resultingString );
-
-    var carriedFunction = carry( stringsConcat );
-    resultingString = carriedFunction( 'I\'m ' )( 'little ' )( 'pony!' );
-    alert( 'Example 2: Result with carrying: ' + resultingString );
-
-    carriedFunction = carry( stringsConcat, 5 );
-    resultingString = carriedFunction( 'Who ' )( 'I\'m? ' )( 'I\'m ' )( 'a little' )( ' pony!' );
-    alert( 'Example 3: Result with carrying. Two arguments: ' + resultingString );
 })();
 
 

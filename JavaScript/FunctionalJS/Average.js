@@ -3,6 +3,8 @@
  */
 (function(){
     'use strict';
+    // Adding function to the namespace.
+    FunctionalJS.averageEvenNumbers = averageEvenNumbers;
 
     // Task 7: Average even numbers.
     function averageEvenNumbers( targetArray ) {
@@ -18,8 +20,4 @@
             return counter + value;
         }) / evenNumbersArray.length;
     }
-
-    var array = [ 1, 23, 2, 6, 12, 0 ];
-    alert( 'Array for average: ' + array );
-    alert( 'Average result: ' + averageEvenNumbers( array ) );
 })();

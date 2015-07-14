@@ -3,6 +3,8 @@
  */
 (function(){
     'use strict';
+    // Adding function to the namespace.
+    FunctionalJS.randomSum = randomSum;
 
     // Task 8: Sum of n random numbers.
     function randomSum( numberOfTerms ) {
@@ -19,6 +21,4 @@
             return counter + value;
         });
     }
-
-    alert( 'Sum of 10 random numbers: ' + randomSum( 10 ) );
 })();

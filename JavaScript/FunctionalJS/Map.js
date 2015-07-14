@@ -20,19 +20,4 @@
 
         return result;
     }
-
-    var array = [ 1, 2, 3, 4, 5 ];
-    var resultArray = map(array, function ( x ) {
-        return x * 2;
-    });
-
-    alert( 'My map result: ' +  resultArray );
-
-    resultArray = array.map( function( x ) {
-       return x * 2;
-    });
-
-    alert( 'Array.prototype.map result: ' + resultArray );
-
-
 })();

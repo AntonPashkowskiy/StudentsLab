@@ -20,13 +20,4 @@
 
         return undefined;
     }
-
-
-    var array = [ 1, 4, 2, 134, 5, 56, 123 ];
-    alert( 'Target array for \'first\' function: ' + array );
-
-    var result = first( array, function( x ){
-        return x > 100;
-    });
-    alert( 'A first number greater than 100:  ' + result );
 })();
