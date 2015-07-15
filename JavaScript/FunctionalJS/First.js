@@ -3,21 +3,16 @@
  */
 (function(){
     'use strict';
-    // Adding function to the namespace.
-    FunctionalJS.first = first;
-
     // Task 9: First
-    function first( targetArray, predicateFunction ) {
-        if( !Array.isArray( targetArray ) || typeof predicateFunction !== 'function' ) {
-            return undefined;
+    FunctionalJS.first = function first(targetArray, predicateFunction) {
+        if(!Array.isArray(targetArray) || typeof predicateFunction !== 'function') {
+            return;
         }
 
-        for( var i = 0; i < targetArray.length; i++ ) {
-            if( predicateFunction( targetArray[ i ] ) ) {
-                return targetArray[ i ];
+        for(var i = 0; i < targetArray.length; i++) {
+            if(predicateFunction(targetArray[i])) {
+                return targetArray[i];
             }
         }
-
-        return undefined;
-    }
+    };
 })();

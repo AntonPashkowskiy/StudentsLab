@@ -3,31 +3,28 @@
  */
 (function(){
     'use strict';
-    // Adding function to the namespace.
-    FunctionalJS.unfold = unfold;
-
     // Task 4: linear unfold
-    // unfoldState[ 1 ] - next state value
-    // unfoldState[ 2 ] - next element of the sequence
-    function unfold( initialValue, unfoldFunction ) {
-        if( typeof unfoldFunction !== 'function' ) {
-            return undefined;
+    // unfoldState[1] - next state value
+    // unfoldState[2] - next element of the sequence
+    FunctionalJS.unfold = function(initialValue, unfoldFunction) {
+        if(typeof unfoldFunction !== 'function') {
+            return;
         }
 
         var unfoldResult = [];
         var unfoldState;
 
         do {
-            unfoldState = unfoldFunction( initialValue );
+            unfoldState = unfoldFunction(initialValue);
 
-            if( unfoldState && ( unfoldState[ 1 ] === undefined || unfoldState[ 2 ] === undefined ) ) {
-                return undefined;
-            } else if( !unfoldState ) {
+            if(unfoldState && (unfoldState['First'] === undefined || unfoldState['Second'] === undefined)) {
+                return;
+            } else if(!unfoldState) {
                 return unfoldResult.reverse();
             }
 
-            initialValue = unfoldState[ 1 ];
-            unfoldResult.push( unfoldState[ 2 ] );
-        } while( true );
-    }
+            initialValue = unfoldState['First'];
+            unfoldResult.push(unfoldState['Second']);
+        } while(true);
+    };
 })();

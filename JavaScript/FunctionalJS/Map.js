@@ -3,21 +3,18 @@
  */
 (function(){
     'use strict';
-    // Adding function to the namespace.
-    FunctionalJS.map = map;
-
     // Task 5: Map
-    function map( targetArray, mappingFunction ) {
-        if( !Array.isArray( targetArray ) || typeof mappingFunction !== 'function' ) {
-            return undefined;
+    FunctionalJS.map = function(targetArray, mappingFunction) {
+        if(!Array.isArray(targetArray) || typeof mappingFunction !== 'function') {
+            return;
         }
 
         var result = [];
 
-        for( var i = 0; i < targetArray.length; i++ ) {
-            result.push( mappingFunction( targetArray[ i ] ) );
+        for(var i = 0; i < targetArray.length; i++) {
+            result.push(mappingFunction(targetArray[i]));
         }
 
         return result;
-    }
+    };
 })();

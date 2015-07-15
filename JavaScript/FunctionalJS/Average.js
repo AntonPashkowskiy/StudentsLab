@@ -3,21 +3,18 @@
  */
 (function(){
     'use strict';
-    // Adding function to the namespace.
-    FunctionalJS.averageEvenNumbers = averageEvenNumbers;
-
     // Task 7: Average even numbers.
-    function averageEvenNumbers( targetArray ) {
-        if( !Array.isArray( targetArray ) ) {
-            return undefined;
+    FunctionalJS.averageEvenNumbers = function(targetArray) {
+        if(!Array.isArray(targetArray)) {
+            return;
         }
 
-        var evenNumbersArray = FunctionalJS.filter( targetArray, function( x ) {
-            return ( x % 2 === 0 );
+        var evenNumbersArray = FunctionalJS.filter(targetArray, function(x) {
+            return x % 2 === 0;
         });
 
-        return FunctionalJS.fold( evenNumbersArray, 0, function( counter, value ) {
+        return FunctionalJS.fold(evenNumbersArray, 0, function(counter, value) {
             return counter + value;
         }) / evenNumbersArray.length;
-    }
+    };
 })();

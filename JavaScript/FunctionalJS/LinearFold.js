@@ -3,21 +3,18 @@
  */
 (function(){
     'use strict';
-    // Adding function to the namespace.
-    FunctionalJS.fold = fold;
-    
     // Task 3: linear fold
-    function fold( targetArray, initialCounterValue, foldFunction ) {
-        if( !Array.isArray( targetArray ) || typeof foldFunction !== 'function' ) {
-            return undefined;
+    FunctionalJS.fold = function(targetArray, initialCounterValue, foldFunction) {
+        if(!Array.isArray(targetArray) || typeof foldFunction !== 'function') {
+            return;
         }
 
         var counterValue = initialCounterValue;
 
-        for( var i = 0; i < targetArray.length; i++ ) {
-            counterValue = foldFunction( counterValue, targetArray[ i ] );
+        for(var i = 0; i < targetArray.length; i++) {
+            counterValue = foldFunction(counterValue, targetArray[i]);
         }
 
         return counterValue;
-    }
+    };
 })();

@@ -3,23 +3,20 @@
  */
 (function(){
     'use strict';
-    // Adding function to the namespace.
-    FunctionalJS.filter = filter;
-
     // Task 6: Filter
-    function filter( targetArray, predicateFunction ) {
-        if( !Array.isArray( targetArray ) || typeof predicateFunction !== 'function' ) {
-            return undefined;
+    FunctionalJS.filter = function(targetArray, predicateFunction) {
+        if(!Array.isArray(targetArray) || typeof predicateFunction !== 'function') {
+            return;
         }
 
         var result = [];
 
-        for( var i = 0; i < targetArray.length; i++ ) {
-            if( predicateFunction( targetArray[ i ] ) ) {
-                result.push( targetArray[ i ] );
+        for(var i = 0; i < targetArray.length; i++) {
+            if(predicateFunction(targetArray[i])) {
+                result.push(targetArray[i]);
             }
         }
 
         return result;
-    }
+    };
 })();

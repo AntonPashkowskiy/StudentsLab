@@ -3,14 +3,11 @@
  */
 (function(){
     'use strict';
-    // Adding function to the namespace.
-    FunctionalJS.removeFirstArgument = removeFirstArgument;
-
     // Task 1: Partial Application
-    function removeFirstArgument( argument, targetFunction ) {
+    FunctionalJS.removeFirstArgument = function(argument, targetFunction) {
         return function() {
-            return targetFunction.apply( this, Array.prototype.slice.call( arguments ).concat( argument ) );
-        }
-    }
+            return targetFunction.apply(this, Array.prototype.slice.call(arguments).concat(argument));
+        };
+    };
 })();
 
