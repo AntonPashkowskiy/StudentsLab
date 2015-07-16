@@ -20,7 +20,7 @@
             if(unfoldState && (unfoldState['First'] === undefined || unfoldState['Second'] === undefined)) {
                 return;
             } else if(!unfoldState) {
-                return unfoldResult.reverse();
+                return unfoldResult;
             }
 
             initialValue = unfoldState['First'];

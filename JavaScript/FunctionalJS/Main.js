@@ -67,7 +67,7 @@
 
     // Task 4: Linear unfold.
     // Unfold function example
-    var unfoldIncreasingSequence = function(number) {
+    var unfoldDecreasingSequence = function(number) {
         var nextState = {};
         nextState['First'] = number - 1;
         nextState['Second'] = number - 1;
@@ -75,7 +75,7 @@
         return nextState['First'] < 0 ? undefined : nextState;
     };
 
-    var numberArray = FunctionalJS.unfold(10, unfoldIncreasingSequence);
+    var numberArray = FunctionalJS.unfold(10, unfoldDecreasingSequence);
     alert('Unfold result: ' + numberArray);
 
 
