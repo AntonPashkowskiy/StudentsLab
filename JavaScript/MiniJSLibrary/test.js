@@ -2,7 +2,6 @@
  * Created by anton.pashkouski on 15.07.2015.
  */
 
-
 var testVariable;
 
 alert('isArray function testing.');
@@ -86,24 +85,36 @@ alert('testVariable === undefined : ' + MiniJSLibrary.check.isNull(testVariable)
 
 var testArray = [2, 3, 5, 6, 7, 9, 12, 23, 12];
 alert('Work with arrays functions testing. Source array: ' + testArray);
-alert('Where(x => x != 9)' + MiniJSLibrary.arrays.where(testArray, function(x) {
-    return x !== 9;
-}));
-alert('First(x => x > 20 && x < 30): ' + MiniJSLibrary.arrays.first(testArray, function(x){
-    return x > 20 && x < 30;
-}));
-alert('Last(x => x < 10): ' + MiniJSLibrary.arrays.last(testArray, function(x){
-    return x < 10;
-}));
-alert('Select(x => x < 10): ' + MiniJSLibrary.arrays.select(testArray, function(x){
-    return x < 10;
-}));
+alert('Where(x => x != 9)' + MiniJSLibrary.arrays
+        .where(testArray, function(x) {
+            return x !== 9;
+        })
+);
+alert('First(x => x > 20 && x < 30): ' + MiniJSLibrary.arrays
+        .first(testArray, function(x) {
+            return x > 20 && x < 30;
+        })
+);
+alert('Last(x => x < 10): ' + MiniJSLibrary.arrays
+        .last(testArray, function(x) {
+            return x < 10;
+        })
+);
+alert('Select(x => x < 10): ' + MiniJSLibrary.arrays
+        .select(testArray, function(x) {
+            return x < 10;
+        })
+);
 alert('Skip(3): ' + MiniJSLibrary.arrays.skip(testArray, 3));
 alert('Take(3): ' + MiniJSLibrary.arrays.take(testArray, 3));
-alert('Where x < 10 select x % 2 === 0: ' + MiniJSLibrary.arrays.chain(testArray).where(function(x){
-    return x < 10;
-}).select(function(x){
-    return x % 2 === 0;
-}));
+alert('Where x < 10 select x * 2: ' + MiniJSLibrary.arrays.chain(testArray)
+        .where(function(x) {
+            return x < 10;
+        })
+        .select(function(x) {
+            return x * 2;
+        })
+        .result()
+);
 
 

@@ -2,6 +2,8 @@
  * Created by anton.pashkouski on 15.07.2015.
  */
 MiniJSLibrary.check = (function(){
+    'use strict';
+
     var checkFunctions = {};
 
     checkFunctions.isArray = function(argument) {

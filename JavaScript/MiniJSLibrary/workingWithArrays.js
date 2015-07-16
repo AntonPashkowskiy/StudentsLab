@@ -2,7 +2,13 @@
  * Created by anton.pashkouski on 15.07.2015.
  */
 MiniJSLibrary.arrays = (function(){
+    'use strict';
+
     var workWithArrays = {};
+
+    var isCorrectArguments = function(arrayArgument, functionArgument) {
+        return Array.isArray(arrayArgument) && typeof functionArgument === 'function';
+    };
 
     workWithArrays.forEach = function(targetArray, callbackFunction) {
         if (!isCorrectArguments(targetArray, callbackFunction)) {
@@ -23,8 +29,6 @@ MiniJSLibrary.arrays = (function(){
         for (var i = 0; i < targetArray.length; i++) {
             if (predicateFunction(targetArray[i])) {
                 result.push(targetArray[i]);
-            } else {
-                break;
             }
         }
 
@@ -67,9 +71,7 @@ MiniJSLibrary.arrays = (function(){
         var result = [];
 
         for (var i = 0; i < targetArray.length; i++) {
-            if (selectorFunction(targetArray[i])) {
-                result.push(targetArray[i]);
-            }
+            result.push(selectorFunction(targetArray[i]));
         }
 
         return result;
@@ -104,49 +106,45 @@ MiniJSLibrary.arrays = (function(){
 
         return {
             forEach: function(predicateFunction) {
-                this.resultArray = workWithArrays.forEach(resultArray, predicateFunction);
+                resultArray = workWithArrays.forEach(resultArray, predicateFunction);
                 return this;
             },
 
             where: function(predicateFunction) {
-                this.resultArray = workWithArrays.where(resultArray, predicateFunction);
+                resultArray = workWithArrays.where(resultArray, predicateFunction);
                 return this;
             },
 
             first: function(predicateFunction) {
-                this.resultArray = workWithArrays.first(resultArray, predicateFunction);
+                resultArray = workWithArrays.first(resultArray, predicateFunction);
                 return this;
             },
 
             last: function(predicateFunction) {
-                this.resultArray = workWithArrays.first(resultArray, predicateFunction);
+                resultArray = workWithArrays.first(resultArray, predicateFunction);
                 return this;
             },
 
             select: function(selectorFunction) {
-                this.resultArray = workWithArrays.select(resultArray, selectorFunction);
+                resultArray = workWithArrays.select(resultArray, selectorFunction);
                 return this;
             },
 
             skip: function(count) {
-                this.resultArray = workWithArrays.skip(resultArray, count);
+                resultArray = workWithArrays.skip(resultArray, count);
                 return this;
             },
 
             take: function(count) {
-                this.resultArray = workWithArrays.take(resultArray, count);
+                resultArray = workWithArrays.take(resultArray, count);
                 return this;
             },
 
             result: function() {
-                return this.resultArray;
+                return resultArray;
             }
         };
     };
-
-    function isCorrectArguments(arrayArgument, functionArgument) {
-        return Array.isArray(arrayArgument) && typeof functionArgument === 'function';
-    }
 
     return workWithArrays;
 })();
