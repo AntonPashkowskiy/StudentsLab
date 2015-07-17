@@ -148,6 +148,7 @@
     });
 
     alert('Memorization function (f = 2 * 4) result: ' + memorizationMultiply(2, 4));
-    alert('Do something.');
-    alert('Function cached result: ' + memorizationMultiply());
+    alert('Memorization function (f = 3 * 5) result: ' + memorizationMultiply(3, 5));
+    alert('Memorization function (f = 2 * 4) cached result: ' + memorizationMultiply(2, 4));
+    alert('Memorization function (f = 3 * 5) cached result: ' + memorizationMultiply(3, 5));
 })();

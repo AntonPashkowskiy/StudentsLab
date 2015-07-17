@@ -9,14 +9,16 @@
             return;
         }
 
-        var cachedResult;
+        var cachedResult = [];
 
         return function() {
-            if(cachedResult === undefined) {
-                cachedResult = targetFunction.apply(this, Array.prototype.slice.call(arguments));
-                return cachedResult;
+            var key = JSON.stringify(arguments);
+
+            if(key in cachedResult) {
+                return cachedResult[key];
             } else {
-                return cachedResult;
+                cachedResult[key] = targetFunction.apply(this, Array.prototype.slice.call(arguments));
+                return cachedResult[key];
             }
         }
     };
