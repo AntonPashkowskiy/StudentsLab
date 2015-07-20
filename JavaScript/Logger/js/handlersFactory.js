@@ -1,11 +1,21 @@
 /**
  * Created by anton.pashkouski on 20.07.2015.
  */
-Logger.handlers = (function(){
+/*
+* Handlers factory. Can create object with 3 default functions:
+* 1. exceptionsHandlingFunction - function that executed when caught exception.
+* 2. preprocessorFunction - function that executed before adding notation in repository.
+* 3. resultsProcessingFunction - function that executed when showing history.
+* It is a possible add custom handler. */
+
+Logger.handlers = (function() {
     'use strict';
 
     var constructorsList = [];
     var resultsToString = function(results) {
+        if (!Array.isArray(results)) {
+            return;
+        }
         var resultMessage = '';
 
         for ( var i = 0; i < results.length; i++ ) {
@@ -14,71 +24,76 @@ Logger.handlers = (function(){
         return resultMessage;
     };
 
-    function AbstractEntryHandler(handlerName) {
+    function AbstractNotationsHandler(handlerName) {
         this.handlerName = handlerName;
     }
 
-    AbstractEntryHandler.prototype.exceptionsHandlingFunction = function(exception){};
-    AbstractEntryHandler.prototype.addingProcessingFunction = function(logEntryObject){};
-    AbstractEntryHandler.prototype.resultsProcessingFunction = function(results){};
-    constructorsList['Abstract'] = AbstractEntryHandler;
+    AbstractNotationsHandler.prototype.exceptionsHandlingFunction = function(exception){};
+    AbstractNotationsHandler.prototype.preprocessorFunction = function(logEntryObject){};
+    AbstractNotationsHandler.prototype.resultsProcessingFunction = function(results){};
+    constructorsList['Abstract'] = AbstractNotationsHandler;
 
 
 
-    function AlertEntryHandler(handlerName) {
-        AbstractEntryHandler.call(this, handlerName);
+    function AlertNotationsHandler(handlerName) {
+        AbstractNotationsHandler.call(this, handlerName);
     }
 
-    AlertEntryHandler.prototype = Object.create(AbstractEntryHandler.prototype);
-    AlertEntryHandler.prototype.constructor = AlertEntryHandler;
-    constructorsList['Alert'] = AlertEntryHandler;
+    AlertNotationsHandler.prototype = Object.create(AbstractNotationsHandler.prototype);
+    AlertNotationsHandler.prototype.constructor = AlertNotationsHandler;
+    constructorsList['Alert'] = AlertNotationsHandler;
 
-    AlertEntryHandler.prototype.exceptionsHandlingFunction = function(exception) {
+    AlertNotationsHandler.prototype.exceptionsHandlingFunction = function(exception) {
         alert(exception.name + ' : ' + exception.message);
     };
 
-    AlertEntryHandler.prototype.addingProcessingFunction = function(logEntryObject) {
+    AlertNotationsHandler.prototype.preprocessorFunction = function(logEntryObject) {
         alert(logEntryObject.toString());
     };
 
-    AlertEntryHandler.prototype.resultsProcessingFunction = function(results) {
+    AlertNotationsHandler.prototype.resultsProcessingFunction = function(results) {
         var resultMessage = resultsToString(results);
         alert(resultMessage);
     };
 
 
 
-    function ConsoleEntryHandler(handlerName) {
-        AbstractEntryHandler.call(this, handlerName);
+    function ConsoleNotationsHandler(handlerName) {
+        AbstractNotationsHandler.call(this, handlerName);
     }
 
-    ConsoleEntryHandler.prototype = Object.create(AbstractEntryHandler.prototype);
-    ConsoleEntryHandler.prototype.constructor = ConsoleEntryHandler;
-    constructorsList['Console'] = ConsoleEntryHandler;
+    ConsoleNotationsHandler.prototype = Object.create(AbstractNotationsHandler.prototype);
+    ConsoleNotationsHandler.prototype.constructor = ConsoleNotationsHandler;
+    constructorsList['Console'] = ConsoleNotationsHandler;
 
-    ConsoleEntryHandler.prototype.exceptionsHandlingFunction = function(exception) {
+    ConsoleNotationsHandler.prototype.exceptionsHandlingFunction = function(exception) {
         console.log(exception.name + ' : ' + exception.message);
     };
 
-    ConsoleEntryHandler.prototype.addingProcessingFunction = function(logEntryObject) {
+    ConsoleNotationsHandler.prototype.preprocessorFunction = function(logEntryObject) {
         console.log(logEntryObject.toString());
     };
 
-    ConsoleEntryHandler.prototype.resultsProcessingFunction = function(results) {
+    ConsoleNotationsHandler.prototype.resultsProcessingFunction = function(results) {
         var resultMessage = resultsToString(results);
         console.log(resultMessage);
     };
 
 
-
+    /*
+    * @ argument handlerName : a one of the default handlers name (Abstract, Alert, Console)
+    *   or the name of a custom handler specified */
     var createHandler = function(handlerName) {
         if (constructorsList[handlerName] !== undefined) {
             return new constructorsList[handlerName](handlerName);
         }
     };
 
+    /*
+    * @ argument handlerName : the name of the new handler for factory.
+    * @ argument handlerConstructor : constructor inherited from AbstractNotationsHandler*/
     var addHandlerConstructor = function(handlerName, handlerConstructor) {
-        if (typeof handlerName === 'string' && handlerConstructor instanceof AbstractEntryHandler) {
+        if (typeof handlerName === 'string' && handlerConstructor instanceof AbstractNotationsHandler) {
             constructorsList[handlerName] = handlerConstructor;
         }
     };
@@ -86,6 +101,6 @@ Logger.handlers = (function(){
     return {
         createHandler: createHandler,
         addHandlerConstructor: addHandlerConstructor,
-        AbstractEntryHandler: AbstractEntryHandler
+        AbstractEntryHandler: AbstractNotationsHandler
     };
 })();

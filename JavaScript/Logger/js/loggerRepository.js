@@ -1,6 +1,9 @@
 /**
  * Created by anton.pashkouski on 17.07.2015.
  */
+/*
+* Default notes repository.
+* Derivative object can be set via setLoggerRepository function.*/
 Logger.entities.LoggerRepository = (function() {
     'use strict';
 

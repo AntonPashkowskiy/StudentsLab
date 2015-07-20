@@ -1,7 +1,7 @@
 /**
  * Created by anton.pashkouski on 20.07.2015.
  */
-Logger.handleException = (function(){
+Logger.handleException = (function() {
     'use strict';
 
      return function(exception, handlerFunction) {

@@ -1,7 +1,7 @@
 /**
  * Created by anton.pashkouski on 20.07.2015.
  */
-(function(){
+(function() {
     'use strict';
 
     var currentLoggerRepository = new Logger.entities.LoggerRepository();
@@ -15,7 +15,7 @@
         );
     };
 
-    var isLogEntry = function(logEntry) {
+    var isLogNotation = function(logEntry) {
         return (logEntry instanceof Logger.entities.LogEntryObject &&
                 typeof logEntry.toString === 'function'
         );
@@ -23,7 +23,7 @@
 
     var isValidLogHandler = function(handler) {
         return (typeof handler.exceptionsHandlingFunction === 'function' &&
-                typeof handler.addingProcessingFunction === 'function' &&
+                typeof handler.preprocessorFunction === 'function' &&
                 typeof handler.resultsProcessingFunction === 'function'
         );
     };
@@ -36,10 +36,10 @@
         }
     };
 
-    var toLogEntry = function(informationObject) {
+    var toLogNotation = function(informationObject) {
         if (typeof informationObject === 'string') {
             return new Logger.entities.LogEntryObject(informationObject, Logger.INFORMATION_PRIORITY);
-        } else if (isLogEntry(informationObject)) {
+        } else if (isLogNotation(informationObject)) {
             return informationObject;
         } else {
             throw new Logger.exceptions.IncorrectLogEntityError();
@@ -60,27 +60,27 @@
 
         currentHandler = tempHandler;
     };
-
+    
     Logger.log = function(information, handlerName, preprocessing) {
         handlerName = handlerName || defaultHandlerName;
         preprocessing = preprocessing || true;
 
         try {
             setCurrentHandler(handlerName);
-            var logEntry = toLogEntry(information);
+            var logNotation = toLogNotation(information);
 
             if(preprocessing) {
-                currentHandler.addingProcessingFunction(logEntry);
+                currentHandler.preprocessorFunction(logNotation);
             }
-            currentLoggerRepository.add(logEntry);
+            currentLoggerRepository.add(logNotation);
         } catch(error) {
             Logger.handleException(error, currentHandler.exceptionsHandlingFunction);
         }
     };
 
     Logger.showHistory = function() {
-        var logInformation = currentLoggerRepository.getAll();
-        currentHandler.resultsProcessingFunction(logInformation);
+        var logNotations = currentLoggerRepository.getAll();
+        currentHandler.resultsProcessingFunction(logNotations);
     };
 
     Logger.setLoggerRepository = function(loggerRepository) {
