@@ -2,7 +2,7 @@
  * Created by anton.pashkouski on 20.07.2015.
  */
 /*
-* Handlers factory. Can create object with 3 default functions:
+* Output handlers factory. Can create object with 3 default functions:
 * 1. exceptionsHandlingFunction - function that executed when caught exception.
 * 2. preprocessorFunction - function that executed before adding notation in repository.
 * 3. resultsProcessingFunction - function that executed when showing history.
@@ -101,6 +101,6 @@ Logger.handlers = (function() {
     return {
         createHandler: createHandler,
         addHandlerConstructor: addHandlerConstructor,
-        AbstractEntryHandler: AbstractNotationsHandler
+        AbstractNotationsHandler: AbstractNotationsHandler
     };
 })();

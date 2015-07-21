@@ -60,7 +60,7 @@
 
         currentHandler = tempHandler;
     };
-    
+
     Logger.log = function(information, handlerName, preprocessing) {
         handlerName = handlerName || defaultHandlerName;
         preprocessing = preprocessing || true;
