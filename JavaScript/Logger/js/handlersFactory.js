@@ -8,7 +8,7 @@
 * 3. resultsProcessingFunction - function that executed when showing history.
 * It is a possible add custom handler. */
 
-Logger.handlers = (function() {
+define(function() {
     'use strict';
 
     var constructorsList = [];
@@ -29,7 +29,7 @@ Logger.handlers = (function() {
     }
 
     AbstractNotationsHandler.prototype.exceptionsHandlingFunction = function(exception){};
-    AbstractNotationsHandler.prototype.preprocessorFunction = function(logEntryObject){};
+    AbstractNotationsHandler.prototype.preprocessorFunction = function(logEntityObject){};
     AbstractNotationsHandler.prototype.resultsProcessingFunction = function(results){};
     constructorsList['Abstract'] = AbstractNotationsHandler;
 
@@ -47,8 +47,8 @@ Logger.handlers = (function() {
         alert(exception.name + ' : ' + exception.message);
     };
 
-    AlertNotationsHandler.prototype.preprocessorFunction = function(logEntryObject) {
-        alert(logEntryObject.toString());
+    AlertNotationsHandler.prototype.preprocessorFunction = function(logEntityObject) {
+        alert(logEntityObject.toString());
     };
 
     AlertNotationsHandler.prototype.resultsProcessingFunction = function(results) {
@@ -70,15 +70,14 @@ Logger.handlers = (function() {
         console.log(exception.name + ' : ' + exception.message);
     };
 
-    ConsoleNotationsHandler.prototype.preprocessorFunction = function(logEntryObject) {
-        console.log(logEntryObject.toString());
+    ConsoleNotationsHandler.prototype.preprocessorFunction = function(logEntityObject) {
+        console.log(logEntityObject.toString());
     };
 
     ConsoleNotationsHandler.prototype.resultsProcessingFunction = function(results) {
         var resultMessage = resultsToString(results);
         console.log(resultMessage);
     };
-
 
     /*
     * @ argument handlerName : a one of the default handlers name (Abstract, Alert, Console)
@@ -93,7 +92,7 @@ Logger.handlers = (function() {
     * @ argument handlerName : the name of the new handler for factory.
     * @ argument handlerConstructor : constructor inherited from AbstractNotationsHandler*/
     var addHandlerConstructor = function(handlerName, handlerConstructor) {
-        if (typeof handlerName === 'string' && handlerConstructor instanceof AbstractNotationsHandler) {
+        if (typeof handlerName === 'string') {
             constructorsList[handlerName] = handlerConstructor;
         }
     };
@@ -103,4 +102,4 @@ Logger.handlers = (function() {
         addHandlerConstructor: addHandlerConstructor,
         AbstractNotationsHandler: AbstractNotationsHandler
     };
-})();
+});

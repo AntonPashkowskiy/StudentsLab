@@ -1,7 +1,7 @@
 /**
  * Created by anton.pashkouski on 20.07.2015.
  */
-Logger.handleException = (function() {
+define(function() {
     'use strict';
 
      return function(exception, handlerFunction) {
@@ -9,4 +9,4 @@ Logger.handleException = (function() {
             handlerFunction(exception);
         }
      };
-})();
+});

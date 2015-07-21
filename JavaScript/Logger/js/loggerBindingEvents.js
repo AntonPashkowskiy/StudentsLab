@@ -1,51 +1,52 @@
 /**
  * Created by anton.pashkouski on 21.07.2015.
  */
-Logger.eventBinding = (function(){
-    'use strict';
+define(
+    [   'loggerConstants',
+        'logNotationObject',
+        'loggerFunctions'
+    ],
+    function(constants, notation, logger) {
+        'use strict';
 
-    // creating functions-decorators around events
-    var createBindingFunction = function(event, informationString, handlerName, preprocessing) {
-        return function() {
-            if(typeof event === 'function') {
-                event();
+        // creating functions-decorators around events
+        var createBindingFunction = function(event, informationString, handlerName, preprocessing) {
+            return function() {
+                if (typeof event === 'function') {
+                    event();
+                }
+
+                logger.log(
+                    new notation.LogNotationObject(informationString, constants.EVENT_PRIORITY),
+                    handlerName,
+                    preprocessing
+                );
+            };
+        };
+
+        var setErrorHandler = function(handlerFunction) {
+            if (typeof handlerFunction === 'function') {
+                window.removeEventListener('error', defaultErrorHandler);
+                window.addEventListener('error', handlerFunction);
             }
+        };
 
-            Logger.log(
-                new Logger.entities.LogEntryObject(informationString, Logger.EVENT_PRIORITY),
-                handlerName,
-                preprocessing
+        var defaultErrorHandler = function(errorMessage) {
+            errorMessage = errorMessage ? 'Some unhandled error.' : errorMessage;
+
+            logger.log(
+                new notation.LogNotationObject(errorMessage, constants.ERROR_PRIORITY),
+                'Console',
+                true
             );
         };
-    };
 
-    var errorHandlerName = 'Console';
-    var errorHandlerFunction = null;
-
-    var setErrorHandler = function(outputHandlerName, handlerFunction) {
-        errorHandlerName = typeof outputHandlerName === 'string' ? outputHandlerName : errorHandlerName;
-        errorHandlerFunction = typeof handlerFunction === 'function' ? handlerFunction : errorHandlerFunction;
-    };
-
-    var defaultErrorHandler = function(errorMessage) {
-        errorMessage = errorMessage ? 'Some unhandled error.' : errorMessage;
-
-        Logger.log(
-            new Logger.entities.LogEntryObject(errorMessage, Logger.ERROR_PRIORITY),
-            errorHandlerName,
-            false
-        );
-    };
-
-    // binding to all unhandled frontend errors
-    if (errorHandlerFunction === null) {
+        // binding to all unhandled frontend errors
         window.addEventListener('error', defaultErrorHandler);
-    } else {
-        window.addEventListener('error', errorHandlerFunction);
-    }
 
-    return {
-        createBindingFunction: createBindingFunction,
-        setErrorHandler: setErrorHandler
-    };
-})();
+        return {
+            createBindingFunction: createBindingFunction,
+            setErrorHandler: setErrorHandler
+        };
+    }
+);

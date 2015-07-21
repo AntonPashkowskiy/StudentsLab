@@ -4,7 +4,7 @@
 /*
 * Default notes repository.
 * Derivative object can be set via setLoggerRepository function.*/
-Logger.entities.LoggerRepository = (function() {
+define(function() {
     'use strict';
 
     function LoggerRepository() {
@@ -19,5 +19,7 @@ Logger.entities.LoggerRepository = (function() {
         return this.repositoryArray.slice();
     };
 
-    return LoggerRepository;
-})();
+    return {
+        LoggerRepository: LoggerRepository
+    };
+});

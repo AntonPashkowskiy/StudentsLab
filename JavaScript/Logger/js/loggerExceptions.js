@@ -1,7 +1,7 @@
 /**
  * Created by anton.pashkouski on 20.07.2015.
  */
-Logger.exceptions = (function() {
+define(function() {
     'use strict';
 
     function IncorrectLogEntityError() {
@@ -41,4 +41,4 @@ Logger.exceptions = (function() {
         OverrideFunctionError: OverrideFunctionError,
         IncorrectLoggerArgument: IncorrectLoggerArgument
     };
-})();
+});
