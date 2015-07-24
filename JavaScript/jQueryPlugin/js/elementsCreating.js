@@ -1,18 +1,17 @@
 /**
  * Created by anton.pashkouski on 23.07.2015.
  */
-
-var Elements = (function($){
+(function($){
     'use strict';
 
-    var toReducedImagePath = function(imageSourcePath) {
+    var toReducedImagePath = function (imageSourcePath) {
         var separatedPath = imageSourcePath.split('.');
         separatedPath[0] += '_min';
 
         return separatedPath.join('.');
     };
 
-    var createImageElement = function(imageSource) {
+    var createImageElement = function (imageSource) {
         return $('<img>')
             .addClass('basket-product-image')
             .attr({
@@ -21,24 +20,24 @@ var Elements = (function($){
             });
     };
 
-    var createNameElement = function(name) {
+    var createNameElement = function (name) {
         return $('<h1>')
             .addClass('basket-product-name')
             .html(name);
     };
 
-    var createCostElement = function(cost) {
+    var createCostElement = function (cost) {
         return $('<p>')
-            .addClass('basket-product-cost')
+            .addClass('basket-product-price')
             .html(cost);
     };
 
-    var createProductCountElement = function(serialNumber) {
+    var createProductAmountElement = function (productId) {
         var productsCountArea = $('<div>').addClass('basket-products-count');
         var numberOfProducts = $('<input/>')
-            .addClass('number')
+            .addClass('counter')
             .attr({
-                id: 'range-' + serialNumber,
+                id: 'range-' + productId,
                 type: 'number',
                 value: '1',
                 min: '0'
@@ -48,22 +47,18 @@ var Elements = (function($){
         return productsCountArea;
     };
 
-    var createBasketListItem = function(productInformation, serialNumber) {
+    $.fn.createBasketListItem = function (productInformation, productId) {
         var basketListItem = $('<li>').addClass('basket-list-element');
         var image = createImageElement(productInformation.imageSource);
         var name = createNameElement(productInformation.productName);
-        var cost = createCostElement(productInformation.productCost);
-        var count = createProductCountElement(serialNumber);
+        var cost = createCostElement(productInformation.productPrice);
+        var amount = createProductAmountElement(productId);
 
         basketListItem.append(image);
         basketListItem.append(name);
         basketListItem.append(cost);
-        basketListItem.append(count);
+        basketListItem.append(amount);
 
         return basketListItem;
     };
-
-    return {
-        createBasketListItem: createBasketListItem
-    }
 })(jQuery);

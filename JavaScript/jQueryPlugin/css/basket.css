@@ -50,7 +50,7 @@
     font-size: 20px;
 }
 
-.basket-product-cost {
+.basket-product-price {
     display: inline-block;
     vertical-align: top;
 
@@ -58,7 +58,7 @@
     font-size: 20px;
 }
 
-.basket-product-cost:after {
+.basket-product-price:after {
     content: ' $';
 }
 
