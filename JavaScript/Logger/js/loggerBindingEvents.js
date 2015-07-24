@@ -24,13 +24,6 @@ define(
             };
         };
 
-        var setErrorHandler = function(handlerFunction) {
-            if (typeof handlerFunction === 'function') {
-                window.removeEventListener('error', defaultErrorHandler);
-                window.addEventListener('error', handlerFunction);
-            }
-        };
-
         var defaultErrorHandler = function(errorMessage) {
             errorMessage = errorMessage ? 'Some unhandled error.' : errorMessage;
 
@@ -41,8 +34,17 @@ define(
             );
         };
 
+        var errorHandlerFunction = defaultErrorHandler;
         // binding to all unhandled frontend errors
-        window.addEventListener('error', defaultErrorHandler);
+        window.addEventListener('error', errorHandlerFunction);
+
+        var setErrorHandler = function(handlerFunction) {
+            if (typeof handlerFunction === 'function') {
+                window.removeEventListener('error', errorHandlerFunction);
+                window.addEventListener('error', handlerFunction);
+                errorHandlerFunction = handlerFunction;
+            }
+        };
 
         return {
             createBindingFunction: createBindingFunction,

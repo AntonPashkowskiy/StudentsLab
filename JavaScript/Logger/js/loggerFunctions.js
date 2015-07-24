@@ -13,8 +13,8 @@ define(
         'use strict';
 
         var currentLoggerRepository = new repository.LoggerRepository();
-        var defaultHandlerName = 'Console';
-        var currentHandler = outputHandlersFactory.createHandler(defaultHandlerName);
+        var defaultLoggingType = 'Console';
+        var currentHandler = outputHandlersFactory.createHandler(defaultLoggingType);
 
         var isRepository = function(repository) {
             return (repository instanceof repository.LoggerRepository &&
@@ -36,7 +36,7 @@ define(
             );
         };
 
-        var toRepository = function(repository) {
+        var checkRepositoryType = function(repository) {
             if (isRepository(repository)) {
                 return repository;
             } else {
@@ -54,14 +54,14 @@ define(
             }
         };
 
-        var setCurrentHandler = function(handlerName) {
-            if (handlerName === currentHandler.handlerName) {
+        var setCurrentHandler = function(loggingType) {
+            if (loggingType === currentHandler.handlerName) {
                 return;
             }
-            var tempHandler = outputHandlersFactory.createHandler(handlerName);
+            var tempHandler = outputHandlersFactory.createHandler(loggingType);
 
             if (tempHandler === undefined) {
-                throw new exceptions.IncorrectLoggerArgument(handlerName);
+                throw new exceptions.IncorrectLoggerArgument(loggingType);
             } else if (!isValidLogHandler(tempHandler)) {
                 throw new exceptions.OverrideFunctionError('\'Handler functions\'')
             }
@@ -69,13 +69,13 @@ define(
             currentHandler = tempHandler;
         };
 
-        var log = function(information, handlerName, preprocessing) {
-            handlerName = handlerName === undefined ? defaultHandlerName : handlerName;
+        var log = function(dataToLog, loggingType, preprocessing) {
+            loggingType = loggingType || defaultLoggingType;
             preprocessing = preprocessing === undefined ? true : preprocessing;
 
             try {
-                setCurrentHandler(handlerName);
-                var logNotation = toLogNotation(information);
+                setCurrentHandler(loggingType);
+                var logNotation = toLogNotation(dataToLog);
 
                 if(preprocessing) {
                     currentHandler.preprocessorFunction(logNotation);
@@ -93,7 +93,7 @@ define(
 
         var setLoggerRepository = function(loggerRepository) {
             try {
-                currentLoggerRepository = toRepository(loggerRepository);
+                currentLoggerRepository = checkRepositoryType(loggerRepository);
             } catch(error) {
                 if (error instanceof exceptions.IncorrectLogEntityError) {
                     handleException(error, currentHandler.exceptionsHandlingFunction);
@@ -105,6 +105,6 @@ define(
             log: log,
             showHistory: showHistory,
             setLoggerRepository: setLoggerRepository
-        }
+        };
     }
 );

@@ -24,7 +24,7 @@ define(function() {
             this.priority,
             'Date:',
             new Date().toString()
-        ].join(' ').toString();
+        ].join(' ');
     };
 
     return {

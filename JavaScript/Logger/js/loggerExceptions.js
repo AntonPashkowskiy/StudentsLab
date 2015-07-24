@@ -18,7 +18,7 @@ define(function() {
         Error.call(this, functionName);
         this.name = 'OverrideFunctionError';
         this.functionName = functionName;
-        this.message = ['Override function', this.functionName, 'don\'t satisfy the contract.'].join(' ').toString();
+        this.message = ['Override function', this.functionName, 'don\'t satisfy the contract.'].join(' ');
         this.stack = (new Error()).stack;
     }
 
@@ -29,7 +29,7 @@ define(function() {
         Error.call(this, argumentName);
         this.name = 'IncorrectLoggerArgument';
         this.argumentName = argumentName;
-        this.message = ['Argument', this.argumentName, 'is incorrect.'].join(' ').toString();
+        this.message = ['Argument', this.argumentName, 'is incorrect.'].join(' ');
         this.stack = (new Error()).stack;
     }
 

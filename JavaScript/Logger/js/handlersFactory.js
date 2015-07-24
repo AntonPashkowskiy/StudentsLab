@@ -11,7 +11,7 @@
 define(function() {
     'use strict';
 
-    var constructorsList = [];
+    var constructorsList = {};
     var resultsToString = function(results) {
         if (!Array.isArray(results)) {
             return;
@@ -83,7 +83,7 @@ define(function() {
     * @ argument handlerName : a one of the default handlers name (Abstract, Alert, Console)
     *   or the name of a custom handler specified */
     var createHandler = function(handlerName) {
-        if (constructorsList[handlerName] !== undefined) {
+        if (constructorsList[handlerName]) {
             return new constructorsList[handlerName](handlerName);
         }
     };
