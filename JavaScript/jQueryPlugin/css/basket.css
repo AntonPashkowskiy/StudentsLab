@@ -1,13 +1,13 @@
 .basket {
     float: right;
     text-align: center;
-    width: 11%;
+    min-width: 11%;
 
     margin: 30px;
     padding: 10px;
 
     background-color: #dcdcdc;
-    border: 2px solid #708090;
+    border: 2px solid #c0c0c0;
 }
 
 .basket-header {
