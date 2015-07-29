@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebChat</title>
+    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+    <link type="text/css" rel="stylesheet" href="css/header.css"/>
+    <script data-main="js/chatViewModel" src="js/require.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header-title">Web Chat</h1>
+        <div class="header-registration-area">
+            <div data-bind="template: { name: 'not-authorized-user' }"></div>
+            <div data-bind="template: { name: 'authorized-user' }"></div>
+        </div>
+        <div class="clear-fix"></div>
+    </header>
+    <!-- template for not authorized users -->
+    <script type="text/html" id="not-authorized-user">
+        <!-- ko with: authorization -->
+        <div data-bind="if: !isAuthorized()">
+            <input class="registration-input" type="text" data-bind="value: login" placeholder="login"/>
+            <input class="registration-input" type="password" data-bind="value: password" placeholder="password"/>
+            <button class="registration-button" data-bind="click: logon">Logon</button>
+            <p class="registration-fail-message" data-bind="fadeVisible: authorizationIsFailed(), text: failMessage"></p>
+        </div>
+        <!-- /ko -->
+    </script>
+    <!-- template for authorized users -->
+    <script type="text/html" id="authorized-user">
+        <!-- ko with: authorization -->
+        <div data-bind="if: isAuthorized()">
+            <img class="registration-user-image" data-bind="attr: {src: userAccount.photoPath}" src="" alt="no image"/>
+            <p class="registration-user-name" data-bind="text: fullName"></p>
+            <button class="registration-button" data-bind="click: logout">Logout</button>
+        </div>
+        <!-- /ko -->
+    </script>
+</body>
+</html>
