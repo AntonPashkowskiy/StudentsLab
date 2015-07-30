@@ -11,7 +11,8 @@ require.config({
         'message': 'chats/message',
         'privateChat': 'chats/privateChat',
         'publicChat': 'chats/publicChat',
-        'authorizationModule': 'modules/authorizationModel'
+        'authorizationModel': 'modules/authorizationModel',
+        'custom-bindings': 'bindings/customBindings'
     }
 });
 
@@ -19,22 +20,12 @@ define(
     [   'server',
         'knockout',
         'jquery',
-        'modules/authorizationModel'
+        'authorizationModel',
+        'custom-bindings'
     ],
 
-    function(server, ko, $, AuthorizationModel) {
+    function(server, ko, $, AuthorizationModel ) {
         'use strict';
-
-        ko.bindingHandlers.fadeVisible = {
-            init: function(element, valueAccessor) {
-                var shouldDisplay = valueAccessor();
-                $(element).toggle(shouldDisplay);
-            },
-            update: function(element, valueAccessor) {
-                var shouldDisplay = valueAccessor();
-                shouldDisplay ? $(element).fadeIn() : $(element).fadeOut();
-            }
-        };
 
         function ChatViewModel() {
             this.authorization = new AuthorizationModel();

@@ -1,25 +1,25 @@
 /**
  * Created by Антон on 30.07.2015.
  */
-define(['knockout','server'], function(ko, server){
+define(['knockout', 'dataService'], function(ko, service){
+    'use strict';
+
     function AuthorizationModel() {
         var self = this;
 
         self.isAuthorized = ko.observable(false);
         self.login = ko.observable('');
         self.password = ko.observable('');
-        self.userAccount = ko.observable(null);
 
         self.authorizationIsFailed = ko.observable(false);
         self.failMessage = ko.observable('Invalid login or password.');
 
         self.fullName = ko.pureComputed(function(){
-            if (self.userAccount()) {
-                var userInformation = self.userAccount().user;
-                return userInformation.name + ' ' + userInformation.surname;
-            } else {
-                return '';
-            }
+            return service.getUserName() + ' '+ service.getUserSurname();
+        });
+
+        self.photoPath = ko.pureComputed(function(){
+            return service.getPhotoPath();
         });
 
         var resetAuthorizationFields = function() {
@@ -28,19 +28,19 @@ define(['knockout','server'], function(ko, server){
         };
 
         self.logon = function() {
-            var account = server.authorizationRequest(self.login(), self.password());
-            if(account) {
-                self.userAccount(account);
+            var isSuccess = service.logon(self.login(), self.password());
+
+            if(isSuccess) {
                 self.isAuthorized(true);
-                self.authorizationIsFailed(false);
             } else {
                 resetAuthorizationFields();
                 self.authorizationIsFailed(true);
+                self.authorizationIsFailed(false);
             }
         };
 
         self.logout = function() {
-            self.userAccount(null);
+            service.logout();
             self.isAuthorized(false);
             resetAuthorizationFields();
         };

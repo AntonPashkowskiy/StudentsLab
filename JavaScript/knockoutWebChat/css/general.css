@@ -1,0 +1,29 @@
+.clear-fix {
+    display: block;
+    content: '.';
+
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.button {
+    display: inline-block;
+    box-sizing: border-box;
+
+    font-size: 20px;
+    font-family: Herculanum, Party LET fantasy;
+
+    background-color: #f5f5f5;
+    color: #3f4c6b;
+    border: 5px solid #3f4c6b;
+}
+
+.button:hover {
+    border-color: #4169e1;
+}
+
+.button:active {
+    border-color: #3f4c6b;
+    background-color: #ffffff;
+}

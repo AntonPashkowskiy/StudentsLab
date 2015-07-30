@@ -1,0 +1,46 @@
+.registration-input {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0 10px;
+
+    font-size: 20px;
+    color: #3f4c6b;
+
+    border-radius: 2px;
+    border: 4px solid #3f4c99;
+}
+
+.button.registration-button {
+    display: inline-block;
+    vertical-align: middle;
+    height: 60px;
+    width: 100px;
+
+    font-family: Papyrus, Herculanum, Party LET fantasy;
+    font-size: 25px;
+    color: #999999;
+
+    background-color: #3f4c6b;
+}
+
+.registration-fail-message {
+    font-size: 19px;
+    color: #999999;
+}
+
+.registration-user-image {
+    display: inline-block;
+    vertical-align: middle;
+
+    border-radius: 40px;
+    border: 4px solid #3f4c99;
+}
+
+.registration-user-name {
+    display: inline-block;
+    vertical-align: middle;
+
+    font-family: Papyrus, Herculanum, Party LET fantasy;
+    font-size: 25px;
+    color: #999999;
+}

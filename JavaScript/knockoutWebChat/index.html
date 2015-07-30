@@ -5,6 +5,10 @@
     <title>WebChat</title>
     <link type="text/css" rel="stylesheet" href="css/reset.css"/>
     <link type="text/css" rel="stylesheet" href="css/header.css"/>
+    <link type="text/css" rel="stylesheet" href="css/registration.css"/>
+    <link type="text/css" rel="stylesheet" href="css/chats.css"/>
+    <link type="text/css" rel="stylesheet" href="css/messages.css"/>
+    <link type="text/css" rel="stylesheet" href="css/general.css"/>
     <script data-main="js/chatViewModel" src="js/require.js"></script>
 </head>
 <body>
@@ -16,13 +20,15 @@
         </div>
         <div class="clear-fix"></div>
     </header>
+
+
     <!-- template for not authorized users -->
     <script type="text/html" id="not-authorized-user">
         <!-- ko with: authorization -->
         <div data-bind="if: !isAuthorized()">
-            <input class="registration-input" type="text" data-bind="value: login" placeholder="login"/>
-            <input class="registration-input" type="password" data-bind="value: password" placeholder="password"/>
-            <button class="registration-button" data-bind="click: logon">Logon</button>
+            <input class="registration-input" type="text" data-bind="textInput: login" placeholder="login"/>
+            <input class="registration-input" type="password" data-bind="textInput: password" placeholder="password"/>
+            <button class="button registration-button" data-bind="click: logon">Logon</button>
             <p class="registration-fail-message" data-bind="fadeVisible: authorizationIsFailed(), text: failMessage"></p>
         </div>
         <!-- /ko -->
@@ -31,11 +37,27 @@
     <script type="text/html" id="authorized-user">
         <!-- ko with: authorization -->
         <div data-bind="if: isAuthorized()">
-            <img class="registration-user-image" data-bind="attr: {src: userAccount.photoPath}" src="" alt="no image"/>
+            <img class="registration-user-image" data-bind="attr: {src: photoPath}" alt="img/default.jpg"/>
             <p class="registration-user-name" data-bind="text: fullName"></p>
-            <button class="registration-button" data-bind="click: logout">Logout</button>
+            <button class="button registration-button" data-bind="click: logout">Logout</button>
         </div>
         <!-- /ko -->
     </script>
+
+
+    <div class="chats-list">
+
+    </div>
+    <div class="messages-area">
+        <ul class="messages">
+
+        </ul>
+        <div class="messages-typing-area">
+            <textarea class="text-area">
+
+            </textarea>
+            <button class="button send-button">Send</button>
+        </div>
+    </div>
 </body>
 </html>
