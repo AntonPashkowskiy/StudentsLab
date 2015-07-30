@@ -3,6 +3,21 @@
  */
 define(['knockout', 'jquery'], function(ko, $){
 
+    ko.bindingHandlers.showOnSecond = {
+        init: function(element, valueAccessor) {
+            var shouldDisplay = valueAccessor();
+            $(element).toggle(shouldDisplay);
+        },
+        update: function(element, valueAccessor) {
+            var shouldDisplay = valueAccessor();
+
+            if (shouldDisplay) {
+                $(element).fadeIn();
+                setTimeout(function(){ $(element).fadeOut(); }, 2000);
+            }
+        }
+    };
+
     ko.bindingHandlers.fadeVisible = {
         init: function(element, valueAccessor) {
             var shouldDisplay = valueAccessor();
@@ -13,7 +28,8 @@ define(['knockout', 'jquery'], function(ko, $){
 
             if (shouldDisplay) {
                 $(element).fadeIn();
-                setTimeout(function(){ $(element).fadeOut(); }, 1000);
+            } else {
+                $(element).fadeOut();
             }
         }
     };

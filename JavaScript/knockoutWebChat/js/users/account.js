@@ -3,13 +3,12 @@
  */
 define(
     function() {
-        function Account(accountId, user, contacts, photoPath, publicChats, privateChats) {
+        function Account(accountId, user, contacts, publicChats, privateChats) {
             this.accountId = accountId;
             this.user = user;
             this.contacts = contacts;
             this.publicChats = publicChats;
             this.privateChats = privateChats;
-            this.photoPath = photoPath;
         }
 
         return Account;

@@ -2,9 +2,10 @@
  * Created by anton.pashkouski on 29.07.2015.
  */
 define(['user', 'chat'], function(User, Chat){
-   function PublicChat(chatId, users, messages) {
+   function PublicChat(chatId, chatName, users, messages) {
        Chat.apply(this, [chatId, messages]);
 
+       this.chatName = chatName;
        this.users = (function (arrayOfUsers) {
            if (Array.isArray(arrayOfUsers) &&
                arrayOfUsers.length > 0 &&

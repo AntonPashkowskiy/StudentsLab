@@ -29,7 +29,7 @@
             <input class="registration-input" type="text" data-bind="textInput: login" placeholder="login"/>
             <input class="registration-input" type="password" data-bind="textInput: password" placeholder="password"/>
             <button class="button registration-button" data-bind="click: logon">Logon</button>
-            <p class="registration-fail-message" data-bind="fadeVisible: authorizationIsFailed(), text: failMessage"></p>
+            <p class="registration-fail-message" data-bind="showOnSecond: authorizationIsFailed(), text: failMessage"></p>
         </div>
         <!-- /ko -->
     </script>
@@ -37,18 +37,23 @@
     <script type="text/html" id="authorized-user">
         <!-- ko with: authorization -->
         <div data-bind="if: isAuthorized()">
-            <img class="registration-user-image" data-bind="attr: {src: photoPath}" alt="img/default.jpg"/>
+            <img class="registration-user-image" data-bind="attr: {src: photoPath}"/>
             <p class="registration-user-name" data-bind="text: fullName"></p>
             <button class="button registration-button" data-bind="click: logout">Logout</button>
         </div>
         <!-- /ko -->
     </script>
-
-
-    <div class="chats-list">
-
+    <div class="menu">
+        <!-- ko with: chats -->
+        <ul class="menu-items" data-bind="foreach: menuItems">
+            <li class="menu-item">
+                <h2 class="menu-item-name" data-bind="text: name"></h2>
+                <p class="subitems-count" data-bind="text: itemsCount"></p>
+            </li>
+        </ul>
+        <!-- /ko -->
     </div>
-    <div class="messages-area">
+<div class="messages-area">
         <ul class="messages">
 
         </ul>

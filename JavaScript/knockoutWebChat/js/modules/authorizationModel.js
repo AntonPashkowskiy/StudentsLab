@@ -14,13 +14,13 @@ define(['knockout', 'dataService'], function(ko, service){
         self.authorizationIsFailed = ko.observable(false);
         self.failMessage = ko.observable('Invalid login or password.');
 
-        self.fullName = ko.pureComputed(function(){
-            return service.getUserName() + ' '+ service.getUserSurname();
-        });
+        self.fullName = ko.pureComputed(function() {
+            return service.getUserName() + " " + service.getUserSurname();
+        }).extend({ notify: 'always' });
 
         self.photoPath = ko.pureComputed(function(){
             return service.getPhotoPath();
-        });
+        }).extend({ notify: 'always' });
 
         var resetAuthorizationFields = function() {
             self.login('');

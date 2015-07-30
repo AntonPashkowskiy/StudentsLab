@@ -7,12 +7,12 @@ define(
         'use strict';
 
         var userList = [
-            { accountId: 1, user:  new User('Anton', 'Pashkouski', 'pashkouski.anton'), password: '12345' },
-            { accountId: 2, user:  new User('Victor', 'Makoed', 'makoed.victor'), password: '12345' },
-            { accountId: 3, user:  new User('Alexei', 'Buzuma', 'buzuma.alexei'), password: '12345' },
-            { accountId: 4, user:  new User('Dmitrii', 'Pendo', 'pendo.dmitrii'), password: '12345' },
-            { accountId: 5, user:  new User('Uriy', 'Zaycev', 'Zajakun'), password: '12345' },
-            { accountId: 6, user:  new User('Misha', 'Peshko', 'peshko.misha'), password: '12345' }
+            { accountId: 1, user:  new User('Anton', 'Pashkouski', 'pashkouski.anton', 'img/pashkouski.anton.jpg'), password: '12345' },
+            { accountId: 2, user:  new User('Victor', 'Makoed', 'makoed.victor', 'img/makoed.victor.jpg'), password: '12345' },
+            { accountId: 3, user:  new User('Alexei', 'Buzuma', 'buzuma.alexei', 'img/buzuma.alexei.jpg'), password: '12345' },
+            { accountId: 4, user:  new User('Dmitrii', 'Pendo', 'pendo.dmitrii', 'img/pendo.dmitrii.jpg'), password: '12345' },
+            { accountId: 5, user:  new User('Uriy', 'Zaycev', 'Zajakun', 'img/Zajakun.jpg'), password: '12345' },
+            { accountId: 6, user:  new User('Misha', 'Peshko', 'peshko.misha', 'img/peshko.misha.jpg'), password: '12345' }
         ];
 
         var accountList = [
@@ -22,7 +22,6 @@ define(
                     { contact: userList[2].user, isOnline: userList[2].isOnline },
                     { contact: userList[3].user, isOnline: userList[3].isOnline }
                 ],
-                'img/pashkouski.anton.jpg',
                 [1],
                 [1, 2, 3]
             ),
@@ -30,7 +29,6 @@ define(
                 [
                     { contact: userList[0].user, isOnline: userList[0].isOnline }
                 ],
-                'img/makoed.victor.jpg',
                 [1],
                 [1]
             ),
@@ -38,7 +36,6 @@ define(
                 [
                     { contact: userList[0].user, isOnline: userList[0].isOnline }
                 ],
-                'img/buzuma.alexei.jpg',
                 [1],
                 [2]
             ),
@@ -46,7 +43,6 @@ define(
                 [
                     { contact: userList[0].user, isOnline: userList[0].isOnline }
                 ],
-                'img/pendo.dmitrii.jpg',
                 [],
                 [3]
             ),
@@ -54,7 +50,6 @@ define(
                 [
                     { contact: userList[0].user, isOnline: userList[0].isOnline }
                 ],
-                'img/Zajakun.jpg',
                 [],
                 []
             ),
@@ -62,7 +57,6 @@ define(
                 [
                     { contact: userList[0].user, isOnline: userList[0].isOnline }
                 ],
-                'img/peshko.misha.jpg',
                 [],
                 []
             )
@@ -96,8 +90,24 @@ define(
             }
         };
 
+        var getPrivateChats = function(chatsId) {
+            return [
+                { chatId:  1, chatName: 'Makoed Victor', isOnline: true, photo: 'img/makoed.victor.jpg' },
+                { chatId:  2, chatName: 'Buzuma Alexei', isOnline: true, photo: 'img/buzuma.alexei.jpg' },
+                { chatId:  3, chatName: 'Pendo Dmitrii', isOnline: true, photo: 'img/pendo.dmitrii.jpg' }
+            ]
+        };
+
+        var getPublicChats = function(chatsId) {
+            return [
+                { chatId: 1, chatName: 'Great talking', members: ['pashkouski.anton', 'makoed.victor', 'buzuma.alexei'] }
+            ];
+        };
+
         return {
-            authorizationRequest: authorizationRequest
+            authorizationRequest: authorizationRequest,
+            getPrivateChats: getPrivateChats,
+            getPublicChats: getPublicChats
         };
     }
 );

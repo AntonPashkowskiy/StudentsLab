@@ -12,6 +12,7 @@ require.config({
         'privateChat': 'chats/privateChat',
         'publicChat': 'chats/publicChat',
         'authorizationModel': 'modules/authorizationModel',
+        'chatsModel': 'modules/chatsModel',
         'custom-bindings': 'bindings/customBindings'
     }
 });
@@ -21,14 +22,16 @@ define(
         'knockout',
         'jquery',
         'authorizationModel',
+        'chatsModel',
         'custom-bindings'
     ],
 
-    function(server, ko, $, AuthorizationModel ) {
+    function(server, ko, $, AuthorizationModel, ChatsModel ) {
         'use strict';
 
         function ChatViewModel() {
             this.authorization = new AuthorizationModel();
+            this.chats = new ChatsModel();
         }
 
         ko.applyBindings(new ChatViewModel());
