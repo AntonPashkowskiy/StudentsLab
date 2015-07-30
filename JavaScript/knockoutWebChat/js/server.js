@@ -100,7 +100,12 @@ define(
 
         var getPublicChats = function(chatsId) {
             return [
-                { chatId: 1, chatName: 'Great talking', members: ['pashkouski.anton', 'makoed.victor', 'buzuma.alexei'] }
+                {
+                    chatId: 1,
+                    chatName: 'Great talking',
+                    photo: 'img/default.jpg',
+                    members: ['pashkouski.anton', 'makoed.victor', 'buzuma.alexei']
+                }
             ];
         };
 

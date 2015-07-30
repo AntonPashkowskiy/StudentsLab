@@ -1,7 +1,7 @@
 /**
  * Created by anton.pashkouski on 30.07.2015.
  */
-define(['knockout', 'jquery'], function(ko, $){
+define(['knockout', 'jquery', 'jquery-ui'], function(ko, $, ui){
 
     ko.bindingHandlers.showOnSecond = {
         init: function(element, valueAccessor) {
@@ -31,6 +31,12 @@ define(['knockout', 'jquery'], function(ko, $){
             } else {
                 $(element).fadeOut();
             }
+        }
+    };
+
+    ko.bindingHandlers.accordion = {
+        init: function(element, valueAccessor) {
+            $(element).accordion();
         }
     };
 });

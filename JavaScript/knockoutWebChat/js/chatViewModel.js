@@ -5,6 +5,7 @@ require.config({
     paths: {
         'knockout': 'knockout-3.3.0',
         'jquery': 'jquery-2.1.4.min',
+        'jquery-ui': 'jquery-ui.min',
         'user': 'users/user',
         'account': 'users/account',
         'chat': 'chats/chat',
@@ -30,8 +31,13 @@ define(
         'use strict';
 
         function ChatViewModel() {
-            this.authorization = new AuthorizationModel();
-            this.chats = new ChatsModel();
+            var self = this;
+            self.authorization = new AuthorizationModel();
+            self.chats = new ChatsModel();
+
+            self.authorization.isAuthorized.subscribe(function() {
+                self.chats.getChatsServiceInformation();
+            });
         }
 
         ko.applyBindings(new ChatViewModel());

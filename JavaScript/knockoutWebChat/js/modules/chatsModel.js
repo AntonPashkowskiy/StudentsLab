@@ -3,22 +3,33 @@
  */
 define(['knockout', 'dataService'], function(ko, service){
 
-    function MenuItem(name, itemsCount) {
+    function MenuItem(name, items) {
         this.name = name;
-        this.itemsCount = itemsCount;
+        this.items = items;
     }
 
     function ChatsModel() {
         var self = this;
 
-        self.contacts = ko.observableArray(service.getContacts());
-        self.privateChats = ko.observableArray(service.getPrivateChats());
-        self.publicChat = ko.observableArray(service.getPublicChats());
-        self.menuItems =  [
-            new MenuItem('Contacts ', self.contacts().length),
-            new MenuItem('Private chats', self.privateChats().length),
-            new MenuItem('Public chats', self.publicChat().length)
-        ];
+        self.contacts = ko.observableArray([]);
+        self.privateChats = ko.observableArray([]);
+        self.publicChat = ko.observableArray([]);
+
+        self.menuItems =  ko.observableArray([
+            new MenuItem('Contacts ', self.contacts),
+            new MenuItem('Private chats', self.privateChats),
+            new MenuItem('Public chats', self.publicChat)
+        ]);
+
+        self.getChatsServiceInformation = function() {
+            var privateChatsArray = service.getPrivateChats();
+            var publicChatsArray = service.getPublicChats();
+            var contactsArray = service.getContacts();
+
+            self.privateChats(privateChatsArray);
+            self.publicChat(publicChatsArray);
+            self.contacts(contactsArray);
+        };
     }
 
     return ChatsModel;

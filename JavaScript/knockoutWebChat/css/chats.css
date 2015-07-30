@@ -18,7 +18,20 @@
     margin: 5px 0;
     padding: 30px 0;
 
+    font-size: 20px;
+    color: #979dcc;
+
     border: 3px solid #3f4c6b;
+    border-radius: 10px;
+}
+
+.menu-item:hover {
+    background-color: #edf0ed;
+    border: 3px solid #77a6cc;
+}
+
+.menu-item:active {
+    border: 3px solid #9096e4;
 }
 
 .menu-item-name {
@@ -31,4 +44,6 @@
 .subitems-count {
     display: table-cell;
     width: 20%;
+
+    font-weight: bold;
 }

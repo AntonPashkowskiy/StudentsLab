@@ -9,6 +9,7 @@
     <link type="text/css" rel="stylesheet" href="css/chats.css"/>
     <link type="text/css" rel="stylesheet" href="css/messages.css"/>
     <link type="text/css" rel="stylesheet" href="css/general.css"/>
+    <link type="text/css" rel="stylesheet" href="css/jquery-ui.min.css">
     <script data-main="js/chatViewModel" src="js/require.js"></script>
 </head>
 <body>
@@ -37,23 +38,27 @@
     <script type="text/html" id="authorized-user">
         <!-- ko with: authorization -->
         <div data-bind="if: isAuthorized()">
-            <img class="registration-user-image" data-bind="attr: {src: photoPath}"/>
+            <img class="registration-user-image" data-bind="attr: {src: photoPath}" alt="no image"/>
             <p class="registration-user-name" data-bind="text: fullName"></p>
             <button class="button registration-button" data-bind="click: logout">Logout</button>
         </div>
         <!-- /ko -->
     </script>
-    <div class="menu">
+
+    <div class="menu" data-bind="fadeVisible: authorization.isAuthorized()">
         <!-- ko with: chats -->
         <ul class="menu-items" data-bind="foreach: menuItems">
-            <li class="menu-item">
-                <h2 class="menu-item-name" data-bind="text: name"></h2>
-                <p class="subitems-count" data-bind="text: itemsCount"></p>
+            <li>
+                <div class="menu-item">
+                    <h2 class="menu-item-name" data-bind="text: name"></h2>
+                    <p class="subitems-count" data-bind="text: items().length"></p>
+                </div>
             </li>
         </ul>
         <!-- /ko -->
     </div>
-<div class="messages-area">
+
+    <div class="messages-area" data-bind="fadeVisible: authorization.isAuthorized()">
         <ul class="messages">
 
         </ul>

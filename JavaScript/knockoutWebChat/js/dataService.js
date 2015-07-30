@@ -5,9 +5,6 @@ define(['knockout', 'server'], function(ko, server){
     'use strict';
 
     var userAccount = ko.observable(null);
-    var privateChats = ko.observable(null);
-    var publicChats = ko.observable(null);
-    var contacts = ko.observable(null);
 
     var getUserName = function() {
         if (userAccount()) {
@@ -33,12 +30,8 @@ define(['knockout', 'server'], function(ko, server){
     var logon = function(login, password) {
         var account = server.authorizationRequest(login, password);
 
-
         if (account) {
             userAccount(account);
-            getPrivateChats();
-            getPublicChats();
-            getContacts();
             return true;
         }
         return false;
@@ -46,25 +39,19 @@ define(['knockout', 'server'], function(ko, server){
 
     var logout = function() {
         userAccount(null);
-        privateChats(null);
-        publicChats(null);
         // submit data to server
     };
 
     var getPrivateChats =  function() {
         if (userAccount()) {
-            var chats = server.getPrivateChats(userAccount().privateChats);
-            privateChats(chats);
-            return privateChats();
+            return server.getPrivateChats(userAccount().privateChats);
         }
         return [];
     };
 
     var getPublicChats = function() {
         if (userAccount()) {
-            var chats = server.getPublicChats(userAccount().privateChats);
-            publicChats(chats);
-            return publicChats();
+            return server.getPublicChats(userAccount().privateChats);
         }
         return [];
     };
@@ -79,7 +66,7 @@ define(['knockout', 'server'], function(ko, server){
 
     var getContacts = function() {
         if(userAccount()) {
-            contacts(userAccount().contacts.map(mapContactsFunction));
+            return userAccount().contacts.map(mapContactsFunction);
         }
         return [];
     };
@@ -88,9 +75,9 @@ define(['knockout', 'server'], function(ko, server){
         getUserName: getUserName,
         getUserSurname: getUserSurname,
         getPhotoPath: getPhotoPath,
-        getPrivateChats: privateChats,
-        getPublicChats: publicChats,
-        getContacts: contacts,
+        getPrivateChats: getPrivateChats,
+        getPublicChats: getPublicChats,
+        getContacts: getContacts,
         logon: logon,
         logout: logout
     }
