@@ -36,7 +36,9 @@ define(['knockout', 'jquery', 'jquery-ui'], function(ko, $, ui){
 
     ko.bindingHandlers.accordion = {
         init: function(element, valueAccessor) {
-            $(element).accordion();
+            $(element).accordion({
+                heightStyle: "content"
+            });
         }
     };
 });

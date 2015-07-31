@@ -14,6 +14,7 @@ require.config({
         'publicChat': 'chats/publicChat',
         'authorizationModel': 'modules/authorizationModel',
         'chatsModel': 'modules/chatsModel',
+        'messagesModel': 'modules/messagesModel',
         'custom-bindings': 'bindings/customBindings'
     }
 });
@@ -24,16 +25,18 @@ define(
         'jquery',
         'authorizationModel',
         'chatsModel',
+        'messagesModel',
         'custom-bindings'
     ],
 
-    function(server, ko, $, AuthorizationModel, ChatsModel ) {
+    function(server, ko, $, AuthorizationModel, ChatsModel, MessagesModel ) {
         'use strict';
 
         function ChatViewModel() {
             var self = this;
             self.authorization = new AuthorizationModel();
             self.chats = new ChatsModel();
+            self.messages = new MessagesModel();
 
             self.authorization.isAuthorized.subscribe(function() {
                 self.chats.getChatsServiceInformation();

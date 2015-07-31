@@ -18,44 +18,44 @@ define(
         var accountList = [
             new Account(1, userList[0].user,
                 [
-                    { contact: userList[1].user, isOnline: userList[1].isOnline },
-                    { contact: userList[2].user, isOnline: userList[2].isOnline },
-                    { contact: userList[3].user, isOnline: userList[3].isOnline }
+                    { contact: userList[1].user, isOnline: true },
+                    { contact: userList[2].user, isOnline: true },
+                    { contact: userList[3].user, isOnline: true }
                 ],
                 [1],
                 [1, 2, 3]
             ),
             new Account(2, userList[1].user,
                 [
-                    { contact: userList[0].user, isOnline: userList[0].isOnline }
+                    { contact: userList[0].user, isOnline: true }
                 ],
                 [1],
                 [1]
             ),
             new Account(3, userList[2].user,
                 [
-                    { contact: userList[0].user, isOnline: userList[0].isOnline }
+                    { contact: userList[0].user, isOnline: true }
                 ],
                 [1],
                 [2]
             ),
             new Account(4, userList[3].user,
                 [
-                    { contact: userList[0].user, isOnline: userList[0].isOnline }
+                    { contact: userList[0].user, isOnline: true }
                 ],
                 [],
                 [3]
             ),
             new Account(5, userList[4].user,
                 [
-                    { contact: userList[0].user, isOnline: userList[0].isOnline }
+                    { contact: userList[0].user, isOnline: true }
                 ],
                 [],
                 []
             ),
             new Account(6, userList[5].user,
                 [
-                    { contact: userList[0].user, isOnline: userList[0].isOnline }
+                    { contact: userList[0].user, isOnline: true }
                 ],
                 [],
                 []
@@ -92,9 +92,9 @@ define(
 
         var getPrivateChats = function(chatsId) {
             return [
-                { chatId:  1, chatName: 'Makoed Victor', isOnline: true, photo: 'img/makoed.victor.jpg' },
-                { chatId:  2, chatName: 'Buzuma Alexei', isOnline: true, photo: 'img/buzuma.alexei.jpg' },
-                { chatId:  3, chatName: 'Pendo Dmitrii', isOnline: true, photo: 'img/pendo.dmitrii.jpg' }
+                { chatId:  1, name: 'Makoed Victor', isOnline: true, photo: 'img/makoed.victor.jpg' },
+                { chatId:  2, name: 'Buzuma Alexei', isOnline: true, photo: 'img/buzuma.alexei.jpg' },
+                { chatId:  3, name: 'Pendo Dmitrii', isOnline: true, photo: 'img/pendo.dmitrii.jpg' }
             ]
         };
 
@@ -102,7 +102,7 @@ define(
             return [
                 {
                     chatId: 1,
-                    chatName: 'Great talking',
+                    name: 'Great talking',
                     photo: 'img/default.jpg',
                     members: ['pashkouski.anton', 'makoed.victor', 'buzuma.alexei']
                 }
