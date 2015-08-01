@@ -6,12 +6,12 @@ require.config({
         'knockout': 'knockout-3.3.0',
         'jquery': 'jquery-2.1.4.min',
         'jquery-ui': 'jquery-ui.min',
-        'user': 'users/user',
-        'account': 'users/account',
-        'chat': 'chats/chat',
-        'message': 'chats/message',
-        'privateChat': 'chats/privateChat',
-        'publicChat': 'chats/publicChat',
+        'user': 'server/users/user',
+        'account': 'server/users/account',
+        'chat': 'server/chats/chat',
+        'message': 'server/chats/message',
+        'notification': 'server/chats/notification',
+        'messagesControlSystem': 'server/messagesControlSystem',
         'authorizationModel': 'modules/authorizationModel',
         'chatsModel': 'modules/chatsModel',
         'messagesModel': 'modules/messagesModel',
@@ -20,7 +20,7 @@ require.config({
 });
 
 define(
-    [   'server',
+    [   'server/server',
         'knockout',
         'jquery',
         'authorizationModel',

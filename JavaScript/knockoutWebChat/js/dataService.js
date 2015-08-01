@@ -1,7 +1,7 @@
 /**
  * Created by anton.pashkouski on 30.07.2015.
  */
-define(['knockout', 'server'], function(ko, server){
+define(['knockout', 'server/server'], function(ko, server){
     'use strict';
 
     var userAccount = ko.observable(null);
