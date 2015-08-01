@@ -50,13 +50,13 @@
         <div data-bind="accordion: true">
             <h2>Contacts</h2>
             <ul data-bind="foreach: contacts">
-                <li class="chat-list-item">
-                    <img class="chat-item-photo" data-bind="attr: {src: contactPhoto}" alt="no image"/>
-                    <div class="chat-item-information">
-                        <span class="chat-item-name" data-bind="text: contactFullName"></span>
+                <li class="contact">
+                    <img class="contact-photo" data-bind="attr: {src: contactPhoto}" alt="no image"/>
+                    <div class="contact-information">
+                        <span class="contact-name" data-bind="text: contactFullName"></span>
                         <span class="online-status" data-bind="text: isOnline"></span>
                     </div>
-                    <div class="chat-item-functions">
+                    <div class="contact-functions">
                         <button class="button chat-button" data-bind="click: $parent.removeContact">Remove</button>
                         <button class="button chat-button" data-bind="click: $parent.startPrivateChat">Chat</button>
                     </div>
@@ -64,13 +64,13 @@
             </ul>
             <h2>Private chats</h2>
             <ul data-bind="foreach: privateChats">
-                <li class="chat-list-item">
-                    <img class="chat-item-photo" data-bind="attr: {src: photo}" alt="no-image"/>
-                    <div class="chat-item-information">
-                        <span class="chat-item-name" data-bind="text: name"></span>
+                <li class="contact">
+                    <img class="contact-photo" data-bind="attr: {src: photo}" alt="no-image"/>
+                    <div class="contact-information">
+                        <span class="contact-name" data-bind="text: name"></span>
                         <span class="online-status" data-bind="text: isOnline"></span>
                     </div>
-                    <div class="chat-item-functions">
+                    <div class="contact-functions">
                         <button class="button chat-button" data-bind="click: $parent.removePrivateChat">Remove</button>
                         <button class="button chat-button" data-bind="click: $parent.selectPrivateChat">Chat</button>
                     </div>
@@ -78,8 +78,8 @@
             </ul>
             <h2>Public chats</h2>
             <ul data-bind="foreach: publicChats">
-                <li class="chat-list-item">
-                    <img class="chat-item-photo" data-bind="attr: {src: photo}" alt="no-image"/>
+                <li class="contact">
+                    <img class="contact-photo" data-bind="attr: {src: photo}" alt="no-image"/>
                     <span class="chat-members-count" data-bind="text: members.length"></span>
                     <button class="button chat-button" data-bind="click: $parent.removePublicChat">Remove</button>
                     <button class="button chat-button" data-bind="click: $parent.selectPublicChat">Chat</button>
@@ -92,9 +92,17 @@
 
     <div class="messages-area" data-bind="fadeVisible: authorization.isAuthorized()">
         <!-- ko with: messages -->
-        <ul class="recipients-list"></ul>
-        <ul class="messages">
-
+        <ul class="recipients-list" data-bind="foreach: recipients">
+            <li class="recipient" data-bind="text: $data"></li>
+        </ul>
+        <ul class="messages" data-bind="foreach: messages">
+            <li class="message">
+                <img class="message-sender-photo" data-bind="attr: {src: photo}" alt="no-image"/>
+                <div class="message-body">
+                    <span class="message-sender-name" data-bind="text: senderName"></span>
+                    <p class="message-text" data-bind="text: messageText"></p>
+                </div>
+            </li>
         </ul>
         <div class="messages-typing-area">
             <textarea class="text-area" data-bind="textInput: message, valueUpdate: 'afterkeydown'">

@@ -14,6 +14,8 @@
     min-height: 500px;
     max-height: 600px;
 
+    overflow-y: scroll;
+
     border: 4px solid #3f4c6b;
 }
 
@@ -30,10 +32,73 @@
     font-size: 20px;
     color: #9999cc;
 
+    background-color: #f8ffed;
     border: 1px solid #3f4c6b;
 }
 
 .button.send-button {
     width: 200px;
     height: 50px;
+}
+
+.recipients-list {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+
+    padding: 5px;
+    border-radius: 10px 10px 0 0;
+
+    background-color: #eeeeee;
+}
+
+.recipient {
+    display: inline-block;
+
+    margin: 0 5px;
+    padding: 5px;
+    border-radius: 10px;
+
+    color: #979dcc;
+    background-color: #ffffff;
+    border: 1px solid #ffd722;
+}
+
+.message {
+    text-align: left;
+    vertical-align: bottom;
+
+    margin: 5px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+
+    background-color: #eeeeee;
+}
+
+.message-sender-photo {
+    display: inline-block;
+    vertical-align: top;
+
+    border-radius: 10px 0 10px 0;
+}
+
+.message-body {
+    display: inline-block;
+    width: 70%;
+}
+
+.message-sender-name {
+    padding: 5px 0 0 10px;
+
+    font-size: 20px;
+    color: #8a8ecc;
+}
+
+.message-text {
+    word-break: break-all;
+
+    padding-left: 20px;
+
+    font-size: 20px;
+    color: #333333;
 }

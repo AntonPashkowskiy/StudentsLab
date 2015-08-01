@@ -23,6 +23,15 @@
     background-color: #3f4c6b;
 }
 
+.button.registration-button:hover {
+    border: none;
+}
+
+.button.registration-button:active {
+    background-color: #608799;
+    border: none;
+}
+
 .registration-fail-message {
     font-size: 19px;
     color: #999999;
