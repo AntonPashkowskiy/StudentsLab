@@ -80,6 +80,6 @@ define(
             addMessageToQueue: addMessageToQueue,
             getAllMessagesFromQueue: getAllMessagesFromQueue,
             getLastMessagesFromQueue: getLastMessagesFromQueue
-        }
+        };
     }
 );

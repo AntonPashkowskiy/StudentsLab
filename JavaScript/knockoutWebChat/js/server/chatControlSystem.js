@@ -40,6 +40,8 @@ define(
             var uniqueChatId = getUniqueChatId();
             var messagesQueueId = messagesControlSystem.createMessagesQueue();
             chatsList.push(new Chat(uniqueChatId, messagesQueueId, interlocutorsAccountsId));
+
+            return uniqueChatId;
         };
 
         var deleteChat = function(chatId) {
@@ -114,6 +116,6 @@ define(
             addMessageToChat: addMessageToChat,
             getAllMessagesFromChat: getAllMessagesFromChat,
             getLastMessagesFromChat: getLastMessagesFromChat
-        }
+        };
     }
 );

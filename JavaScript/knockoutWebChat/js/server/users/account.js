@@ -8,17 +8,17 @@ define(
         function Account(
             accountId,
             accountUser,
-            contactsAccountsId,
-            publicChatsId,
-            privateChatsId
+            accountPassword
         ) {
             this.accountId = accountId;
             this.accountUser = accountUser;
-            this.contactAccountsId = contactsAccountsId;
-            this.publicChatsId = publicChatsId;
-            this.privateChatsId = privateChatsId;
+            this.accountPassword = accountPassword;
+            this.onlineStatus = false;
+            this.contactsAccounts = [];
+            this.publicChats = [];
+            this.privateChats = [];
             this.notifications = [];
-            this.notificationsService = null;
+            this.observerOfNotifications = null;
         }
 
         return Account;
