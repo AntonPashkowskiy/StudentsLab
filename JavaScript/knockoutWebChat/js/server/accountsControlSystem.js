@@ -101,8 +101,10 @@ define(
                 if (firstAccountIndex !== -1 && secondAccountIndex !== -1) {
                     accountsList[firstAccountIndex].privateChats.push(chatId);
                     accountsList[secondAccountIndex].privateChats.push(chatId);
+                    return true;
                 }
             }
+            return false;
         };
 
         var addPublicChat = function(accountsId, chatId, photo) {

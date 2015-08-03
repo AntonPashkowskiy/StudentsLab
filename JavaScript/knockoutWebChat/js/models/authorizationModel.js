@@ -35,24 +35,31 @@ define(['knockout', 'authorizationService'], function(ko, service){
         };
 
         self.logon = function() {
-            var userInformation = service.logon(self.login(), self.password());
-
-            if(userInformation) {
+            service.logon({
+                login: self.login(),
+                password: self.password()
+            }, function(userInformation) {
                 self.userInformation(userInformation);
                 self.isAuthorized(true);
-            } else {
+            }, function() {
                 resetAuthorizationFields();
                 self.authorizationIsFailed(true);
                 self.authorizationIsFailed(false);
-            }
+            });
         };
 
         self.logout = function() {
-            service.logout(self.userInformation().accountId);
-
-            resetAuthorizationFields();
-            self.isAuthorized(false);
-            self.userInformation(null);
+            service.logout(
+                self.userInformation().accountId,
+                function() {
+                    resetAuthorizationFields();
+                    self.isAuthorized(false);
+                    self.userInformation(null);
+                },
+                function() {
+                    alert('Logout error.');
+                }
+            );
         };
     }
 

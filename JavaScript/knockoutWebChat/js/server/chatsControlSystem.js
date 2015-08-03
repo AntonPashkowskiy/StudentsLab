@@ -67,8 +67,10 @@ define(
                     if(chatsList[chatIndex].interlocutorsAccountsId.length <= 1) {
                         deleteChat(chatId);
                     }
+                    return true;
                 }
             }
+            return false;
         };
 
         var getInterlocutorsAccountsId = function(chatId) {

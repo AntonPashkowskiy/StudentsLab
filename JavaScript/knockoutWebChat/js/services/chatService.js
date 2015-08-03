@@ -10,28 +10,41 @@ define(
         var getAllMessages = function(chatId, success, error) {
             var messages = server.getAllMessagesFromChat(chatId);
 
-            if (messages) {
-                if (typeof success === 'function') {
-                    success(messages);
-                }
-            } else {
-                if (typeof error === 'function') {
-                    error();
-                }
-            }
-        };
-
-        var sendMessage = function(chatId, authorAccountId, messageText, error) {
-            var isCame = server.sendMessageToChat(chatId, authorAccountId, messageText);
-
-            if (!isCame && typeof error === 'function') {
+            if (messages && typeof success === 'function') {
+                success(messages);
+            } else if (typeof error === 'function') {
                 error();
             }
         };
 
+        var sendMessage = function(parameters, success, error) {
+            var isCame = server.sendMessageToChat(
+                parameters.chatId,
+                parameters.authorAccountId,
+                parameters.messageText
+            );
+
+            if (isCame && typeof success === 'function') {
+                success();
+            } else if (typeof error === 'function') {
+                error();
+            }
+        };
+
+        function delay(targetFunction, milliseconds) {
+            return function() {
+                var savedThis = this;
+                var savedArgs = arguments;
+
+                setTimeout(function() {
+                    targetFunction.apply(savedThis, savedArgs);
+                }, milliseconds);
+            };
+        }
+
         return {
-            getAllMessages: getAllMessages,
-            sendMessage: sendMessage
+            getAllMessages: delay(getAllMessages, 500),
+            sendMessage: delay(sendMessage, 200)
         }
     }
 );

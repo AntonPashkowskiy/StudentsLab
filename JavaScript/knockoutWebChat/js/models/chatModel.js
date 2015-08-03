@@ -33,17 +33,30 @@ define(['knockout', 'chatService'], function(ko, service){
                 self.message('');
                 return;
             }
-            service.sendMessage(self.currentChatId(), self.userInformation.accountId, self.message());
-            self.messages.push({
-                senderName: [self.userInformation.firstName, self.userInformation.lastName].join(' '),
-                photo: self.userInformation.photoPath,
+            service.sendMessage({
+                chatId: self.currentChatId(),
+                authorAccountId: self.userInformation.accountId,
                 messageText: self.message()
+            }, function() {
+                self.messages.push({
+                    senderName: [self.userInformation.firstName, self.userInformation.lastName].join(' '),
+                    photo: self.userInformation.photoPath,
+                    messageText: self.message()
+                });
+                self.message('');
+            }, function() {
+                alert('Message sending error.');
             });
-            self.message('');
         };
 
         self.getChatsServiceInformation = function() {
-            service.getAllMessages(self.currentChatId(), self.receiveMessages.bind(this))
+            service.getAllMessages(
+                self.currentChatId(),
+                self.receiveMessages.bind(this),
+                function() {
+                    alert('Messages getting error.');
+                }
+            );
         };
 
         self.changeState = function(authorizationStatus) {

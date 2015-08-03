@@ -39,6 +39,7 @@ define(
 
         var logout = function(accountId) {
             accountsControlSystem.logout(accountId);
+            return true;
         };
 
         var getContacts = function(accountId) {
@@ -102,17 +103,17 @@ define(
         };
 
         var deleteContact = function(accountId, contactAccountId) {
-            accountsControlSystem.deleteContact(accountId, contactAccountId);
+            return accountsControlSystem.deleteContact(accountId, contactAccountId);
         };
 
         var removeUserFromPrivateChat = function(accountId, chatId) {
-            accountsControlSystem.deletePrivateChat(accountId, chatId);
-            chatsControlSystem.deleteUserFromChat(accountId, chatId);
+            var deletingCompleted = accountsControlSystem.deletePrivateChat(accountId, chatId);
+            return chatsControlSystem.deleteUserFromChat(accountId, chatId) && deletingCompleted;
         };
 
         var removeUserFromPublicChat = function(accountId, chatId) {
-            accountsControlSystem.deletePublicChat(accountId, chatId);
-            chatsControlSystem.deleteUserFromChat(accountId, chatId);
+            var deletingCompleted = accountsControlSystem.deletePublicChat(accountId, chatId);
+            return chatsControlSystem.deleteUserFromChat(accountId, chatId) && deletingCompleted;
         };
 
         var createPrivateChat = function(accountId, interlocutorAccountId) {

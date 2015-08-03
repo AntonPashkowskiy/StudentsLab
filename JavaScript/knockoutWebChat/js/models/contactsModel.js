@@ -39,7 +39,13 @@ define(['knockout', 'contactsInformationService'], function(ko, service){
 
         self.getChatsServiceInformation = function() {
             if (self.userInformation) {
-                service.getAllContacts(self.userInformation.accountId, self.setAllContacts.bind(this));
+                service.getAllContacts(
+                    self.userInformation.accountId,
+                    self.setAllContacts.bind(this),
+                    function() {
+                        alert('Contacts getting error.');
+                    }
+                );
             } else {
                 self.contacts([]);
                 self.privateChats([]);
@@ -66,18 +72,36 @@ define(['knockout', 'contactsInformationService'], function(ko, service){
         };
 
         self.removeContact = function(contact) {
-            service.deleteContact(self.userInformation.accountId, contact.accountId);
-            self.contacts.remove(contact);
+            service.deleteContact({
+                accountId: self.userInformation.accountId,
+                contactAccountId: contact.accountId
+            }, function() {
+                self.contacts.remove(contact);
+            }, function() {
+                alert('Contact removing error.');
+            });
         };
 
         self.removePrivateChat = function(chat) {
-            service.removeUserFromPrivateChat(self.userInformation.accountId, chat.chatId);
-            self.privateChats.remove(chat);
+            service.removeUserFromPrivateChat({
+                accountId: self.userInformation.accountId,
+                chatId: chat.chatId
+            }, function() {
+                self.privateChats.remove(chat);
+            }, function() {
+                alert('Private chat removing error.');
+            });
         };
 
         self.removePublicChat = function(chat) {
-            service.removeUserFromPublicChat(self.userInformation.accountId, chat.chatId);
-            self.publicChats.remove(chat);
+            service.removeUserFromPublicChat({
+                accountId: self.userInformation.accountId,
+                chatId: chat.chatId
+            }, function() {
+                self.publicChats.remove(chat);
+            }, function() {
+                alert('Private chat removing error.');
+            });
         };
 
         self.startPrivateChat = function(contact) {
@@ -87,17 +111,23 @@ define(['knockout', 'contactsInformationService'], function(ko, service){
                     return;
                 }
             }
-            var chatId = service.createPrivateChat(self.userInformation.accountId, contact.accountId);
-            var newPrivateChat = {
-                photo: contact.contactPhoto,
-                name: contact.contactFullName,
-                isOnline: contact.isOnline,
-                login: contact.login,
-                accountId: contact.accountId,
-                chatId: chatId
-            };
-            self.privateChats.push(newPrivateChat);
-            self.selectPrivateChat(newPrivateChat);
+            service.createPrivateChat({
+                accountId: self.userInformation.accountId,
+                interlocutorAccountId: contact.accountId
+            }, function(chatId) {
+                var newPrivateChat = {
+                    photo: contact.contactPhoto,
+                    name: contact.contactFullName,
+                    isOnline: contact.isOnline,
+                    login: contact.login,
+                    accountId: contact.accountId,
+                    chatId: chatId
+                };
+                self.privateChats.push(newPrivateChat);
+                self.selectPrivateChat(newPrivateChat);
+            }, function() {
+                alert('Private chat creating error.');
+            });
         };
 
         self.selectPrivateChat = function(chat) {
