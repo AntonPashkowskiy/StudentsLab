@@ -16,8 +16,8 @@ require.config({
         'accountsControlSystem': 'server/accountsControlSystem',
         'server': 'server/server',
         'authorizationModel': 'models/authorizationModel',
-        'chatsModel': 'models/chatsModel',
-        'messagesModel': 'models/messagesModel',
+        'contactsModel': 'models/contactsModel',
+        'chatModel': 'models/chatModel',
         'authorizationService': 'services/authorizationService',
         'chatService': 'services/chatService',
         'contactsInformationService': 'services/contactsInformationService',
@@ -31,26 +31,26 @@ define(
         'knockout',
         'jquery',
         'authorizationModel',
-        'chatsModel',
-        'messagesModel',
+        'contactsModel',
+        'chatModel',
         'custom-bindings'
     ],
 
-    function(server, ko, $, AuthorizationModel, ChatsModel, MessagesModel ) {
+    function(server, ko, $, AuthorizationModel, ContactsModel, ChatModel ) {
         'use strict';
 
         function ChatViewModel() {
             var self = this;
             self.authorization = new AuthorizationModel();
-            self.chats = new ChatsModel();
-            self.messages = new MessagesModel();
+            self.contacts = new ContactsModel();
+            self.chat = new ChatModel();
 
             self.authorization.isAuthorized.subscribe(function(newValue) {
-                self.chats.userInformation = self.authorization.userInformation();
-                self.messages.userInformation = self.authorization.userInformation();
-                self.chats.functionSelectingOfChat = self.messages.functionSelectingOfChat.bind(self.messages);
-                self.chats.getChatsServiceInformation();
-                self.messages.checkState(newValue);
+                self.contacts.userInformation = self.authorization.userInformation();
+                self.chat.userInformation = self.authorization.userInformation();
+                self.contacts.functionSelectingOfChat = self.chat.functionSelectingOfChat.bind(self.chat);
+                self.contacts.getChatsServiceInformation();
+                self.chat.changeState(newValue);
             });
         }
 

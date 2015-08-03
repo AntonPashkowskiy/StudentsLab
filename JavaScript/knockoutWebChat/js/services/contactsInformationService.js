@@ -34,7 +34,7 @@ define(
         };
 
         var createPrivateChat = function(accountId, interlocutorAccountId) {
-            server.createPrivateChat(accountId, interlocutorAccountId);
+            return server.createPrivateChat(accountId, interlocutorAccountId);
         };
 
         return {

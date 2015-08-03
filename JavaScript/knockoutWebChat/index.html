@@ -46,7 +46,7 @@
     </script>
 
     <div class="menu" data-bind="fadeVisible: authorization.isAuthorized()">
-        <!-- ko with: chats -->
+        <!-- ko with: contacts -->
         <div data-bind="accordion: true">
             <h2>Contacts</h2>
             <ul data-bind="foreach: contacts">
@@ -91,11 +91,11 @@
 
 
     <div class="messages-area" data-bind="fadeVisible: authorization.isAuthorized()">
-        <!-- ko with: messages -->
-        <ul class="recipients-list" data-bind="fadeVisible: currentChatId(), foreach: recipients()">
+        <!-- ko with: chat -->
+        <ul class="recipients-list" data-bind="fadeVisible: currentChatId() !== undefined, foreach: recipients()">
             <li class="recipient" data-bind="text: $data"></li>
         </ul>
-        <ul class="messages" data-bind="fadeVisible: currentChatId(), foreach: messages">
+        <ul class="messages" data-bind="fadeVisible: currentChatId() !== undefined, foreach: messages">
             <li class="message">
                 <img class="message-sender-photo" data-bind="attr: {src: photo}" alt="no-image"/>
                 <div class="message-body">
@@ -104,7 +104,7 @@
                 </div>
             </li>
         </ul>
-        <div class="messages-typing-area" data-bind="fadeVisible: currentChatId()">
+        <div class="messages-typing-area" data-bind="fadeVisible: currentChatId() !== undefined">
             <textarea class="text-area" data-bind="textInput: message, valueUpdate: 'afterkeydown'">
             </textarea>
             <button class="button send-button" data-bind="click: send">Send</button>

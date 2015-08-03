@@ -4,7 +4,7 @@
 define(['knockout', 'chatService'], function(ko, service){
     'use strict';
 
-    function MessagesModel() {
+    function ChatModel() {
         var self = this;
 
         self.userInformation = null;
@@ -16,24 +16,24 @@ define(['knockout', 'chatService'], function(ko, service){
 
         self.functionSelectingOfChat = function(chatId, interlocutors) {
             self.messages([]);
-            self.currentChatId(self.currentChatId);
+            self.currentChatId(chatId);
             self.interlocutorsInformation(interlocutors);
 
-            var recepients = interlocutors.map(function(interlocutor) {
+            var recipients = interlocutors.map(function(interlocutor) {
                 return interlocutor.login;
             });
-            recepients.push(self.userInformation.login);
-            self.recipients(recepients);
+            recipients.push(self.userInformation.login);
+            self.recipients(recipients);
 
             self.getChatsServiceInformation();
         };
 
         self.send = function() {
-            if (!self.userInformation || !self.currentChatId) {
+            if (!self.userInformation || self.currentChatId() === undefined) {
                 self.message('');
                 return;
             }
-            service.sendMessage(self.currentChatId, self.userInformation.accountId, self.message());
+            service.sendMessage(self.currentChatId(), self.userInformation.accountId, self.message());
             self.messages.push({
                 senderName: [self.userInformation.firstName, self.userInformation.lastName].join(' '),
                 photo: self.userInformation.photoPath,
@@ -46,7 +46,7 @@ define(['knockout', 'chatService'], function(ko, service){
             service.getAllMessages(self.currentChatId(), self.receiveMessages.bind(this))
         };
 
-        self.checkState = function(authorizationStatus) {
+        self.changeState = function(authorizationStatus) {
             if (!authorizationStatus) {
                 self.interlocutorsInformation([]);
                 self.message('');
@@ -57,7 +57,7 @@ define(['knockout', 'chatService'], function(ko, service){
 
         var transformInterlocutorInformation = function(user) {
             return {
-                senderName: [user.firstName, user.lastName].join,
+                senderName: [user.firstName, user.lastName].join(' '),
                 photo: user.photoPath
             }
         };
@@ -70,7 +70,7 @@ define(['knockout', 'chatService'], function(ko, service){
             var interlocutors = self.interlocutorsInformation();
 
             for (var i = 0; i < interlocutors.length; i++) {
-                if (interlocutors.accountId === accountId) {
+                if (interlocutors[i].accountId === accountId) {
                     return transformInterlocutorInformation(interlocutors[i]);
                 }
             }
@@ -90,5 +90,5 @@ define(['knockout', 'chatService'], function(ko, service){
         };
     }
 
-    return MessagesModel;
+    return ChatModel;
 });

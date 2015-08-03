@@ -7,6 +7,7 @@ define(['knockout', 'contactsInformationService'], function(ko, service){
     function ContactView(contact) {
         this.contactPhoto = contact.photoPath;
         this.contactFullName = [contact.firstName, contact.lastName].join(' ');
+        this.login = contact.login;
         this.isOnline = contact.isOnline ? 'online' : 'offline';
         this.accountId = contact.accountId;
     }
@@ -26,7 +27,7 @@ define(['knockout', 'contactsInformationService'], function(ko, service){
         this.interlocutors = publicChat.interlocutorsInformation;
     }
 
-    function ChatsModel() {
+    function ContactsModel() {
         var self = this;
 
         self.userInformation = null;
@@ -91,6 +92,7 @@ define(['knockout', 'contactsInformationService'], function(ko, service){
                 photo: contact.contactPhoto,
                 name: contact.contactFullName,
                 isOnline: contact.isOnline,
+                login: contact.login,
                 accountId: contact.accountId,
                 chatId: chatId
             };
@@ -116,10 +118,10 @@ define(['knockout', 'contactsInformationService'], function(ko, service){
 
         self.selectPublicChat = function(chat) {
             if (self.functionSelectingOfChat && typeof self.functionSelectingOfChat === 'function') {
-                self.functionSelectingOfChat(chat.chatId, [chat.interlocutors]);
+                self.functionSelectingOfChat(chat.chatId, chat.interlocutors);
             }
         };
     }
 
-    return ChatsModel;
+    return ContactsModel;
 });
