@@ -5,6 +5,8 @@ define(
     ['message'],
 
     function(Message) {
+        'use strict';
+
         var messagesQueues = [];
 
         var getUniqueQueueId = function() {

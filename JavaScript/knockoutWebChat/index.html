@@ -80,7 +80,7 @@
             <ul data-bind="foreach: publicChats">
                 <li class="contact">
                     <img class="contact-photo" data-bind="attr: {src: photo}" alt="no-image"/>
-                    <span class="chat-members-count" data-bind="text: members.length"></span>
+                    <span class="chat-members-count" data-bind="text: interlocutors.length"></span>
                     <button class="button chat-button" data-bind="click: $parent.removePublicChat">Remove</button>
                     <button class="button chat-button" data-bind="click: $parent.selectPublicChat">Chat</button>
                 </li>
@@ -92,10 +92,10 @@
 
     <div class="messages-area" data-bind="fadeVisible: authorization.isAuthorized()">
         <!-- ko with: messages -->
-        <ul class="recipients-list" data-bind="foreach: recipients">
+        <ul class="recipients-list" data-bind="fadeVisible: currentChatId(), foreach: recipients()">
             <li class="recipient" data-bind="text: $data"></li>
         </ul>
-        <ul class="messages" data-bind="foreach: messages">
+        <ul class="messages" data-bind="fadeVisible: currentChatId(), foreach: messages">
             <li class="message">
                 <img class="message-sender-photo" data-bind="attr: {src: photo}" alt="no-image"/>
                 <div class="message-body">
@@ -104,7 +104,7 @@
                 </div>
             </li>
         </ul>
-        <div class="messages-typing-area">
+        <div class="messages-typing-area" data-bind="fadeVisible: currentChatId()">
             <textarea class="text-area" data-bind="textInput: message, valueUpdate: 'afterkeydown'">
             </textarea>
             <button class="button send-button" data-bind="click: send">Send</button>

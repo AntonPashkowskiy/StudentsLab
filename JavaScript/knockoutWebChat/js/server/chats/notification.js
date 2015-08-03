@@ -3,6 +3,8 @@
  */
 define(
     function() {
+        'use strict';
+
         function Notification(notificationType, notificationData) {
             this.notificationType = notificationType;
             this.notificationData = notificationData;

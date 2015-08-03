@@ -2,9 +2,11 @@
  * Created by Антон on 01.08.2015.
  */
 define(
-    ['account', 'user', 'notification'],
+    ['account', 'user'],
 
-    function(Account, User, Notification) {
+    function(Account, User) {
+        'use strict';
+
         var accountsList = [];
 
         var getUniqueAccountId = function() {
@@ -106,7 +108,7 @@ define(
         var addPublicChat = function(accountsId, chatId, photo) {
             if (Array.isArray(accountsId) && accountsId.length > 2) {
                 for (var i = 0; i < accountsId.length; i++) {
-                    var accountIndex = getAccountIndexById(accountsId);
+                    var accountIndex = getAccountIndexById(accountsId[i]);
 
                     if (accountIndex !== -1) {
                         accountsList[accountIndex].publicChats.push({chatId: chatId, photo: photo});
@@ -129,7 +131,7 @@ define(
         };
 
         var getPublicChatIndex = function(accountIndex, chatId) {
-            for (var i = 0; i < accountsList[accountIndex].publicChats[i]; i++) {
+            for (var i = 0; i < accountsList[accountIndex].publicChats.length; i++) {
                 if (accountsList[accountIndex].publicChats[i].chatId === chatId) {
                     return i;
                 }
@@ -188,7 +190,8 @@ define(
                         firstName: accountsList[i].accountUser.userFirstName,
                         lastName: accountsList[i].accountUser.userLastName,
                         photoPath: accountsList[i].accountUser.userPhoto,
-                        login: accountsList[i].accountUser.userLogin
+                        login: accountsList[i].accountUser.userLogin,
+                        isOnline: accountsList[i].onlineStatus
                     });
                 }
             }

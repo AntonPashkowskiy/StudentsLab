@@ -12,15 +12,22 @@ require.config({
         'message': 'server/chats/message',
         'notification': 'server/chats/notification',
         'messagesControlSystem': 'server/messagesControlSystem',
-        'authorizationModel': 'modules/authorizationModel',
-        'chatsModel': 'modules/chatsModel',
-        'messagesModel': 'modules/messagesModel',
+        'chatsControlSystem': 'server/chatsControlSystem',
+        'accountsControlSystem': 'server/accountsControlSystem',
+        'server': 'server/server',
+        'authorizationModel': 'models/authorizationModel',
+        'chatsModel': 'models/chatsModel',
+        'messagesModel': 'models/messagesModel',
+        'authorizationService': 'services/authorizationService',
+        'chatService': 'services/chatService',
+        'contactsInformationService': 'services/contactsInformationService',
+        'notificationService': 'services/notificationsService',
         'custom-bindings': 'bindings/customBindings'
     }
 });
 
 define(
-    [   'server/server',
+    [   'server',
         'knockout',
         'jquery',
         'authorizationModel',
@@ -38,8 +45,12 @@ define(
             self.chats = new ChatsModel();
             self.messages = new MessagesModel();
 
-            self.authorization.isAuthorized.subscribe(function() {
+            self.authorization.isAuthorized.subscribe(function(newValue) {
+                self.chats.userInformation = self.authorization.userInformation();
+                self.messages.userInformation = self.authorization.userInformation();
+                self.chats.functionSelectingOfChat = self.messages.functionSelectingOfChat.bind(self.messages);
                 self.chats.getChatsServiceInformation();
+                self.messages.checkState(newValue);
             });
         }
 
