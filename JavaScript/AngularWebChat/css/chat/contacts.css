@@ -5,14 +5,16 @@
     margin: 5px 0;
     border-radius: 10px;
 
-    font-size: 20px;
+    font-size: 16px;
     color: #8a8ecc;
 
     background-color: #e2e3ee;
 }
 
 .contact-information {
-    margin: 10px 0;
+	display: inline-block;
+	vertical-align: middle;
+	
     text-align: left;
 }
 
@@ -21,7 +23,7 @@
 }
 
 .contact-name {
-    vertical-align: middle;
+    display: block;
     padding: 0 10px;
 }
 
@@ -29,18 +31,19 @@
     display: inline-block;
     vertical-align: middle;
 
-    border-radius: 10px 0 10px 0;
+    border-radius: 10px 0;
 }
 
 .contact-online-status {
-    display: inline-block;
-    vertical-align: middle;
-    float: right;
-
+    display: block;
     margin: 0 10px;
+	
+	font-size: 15px;
 }
 
 .interlocutors-count {
-    float: right;
+	display: block;
     margin: 0 10px;
+	
+	font-size: 15px;
 }

@@ -1,10 +1,10 @@
 .messages-area {
     display: inline-block;
     box-sizing: border-box;
-    width: 50%;
+    width: 45%;
 
     text-align: center;
-    padding: 10px 50px;
+    padding: 10px 15px;
 }
 
 .messages {
@@ -36,7 +36,6 @@
 
     background-color: #eeeeee;
     border: 1px solid #3f4c6b;
-    border-radius: 0 0 10px 10px;
 }
 
 .recipients-list {
@@ -45,7 +44,6 @@
     text-align: left;
 
     padding: 5px;
-    border-radius: 10px 10px 0 0;
 
     background-color: #eeeeee;
     border: 1px solid #3f4c6b;
@@ -54,8 +52,8 @@
 .recipient {
     display: inline-block;
 
-    margin: 0 5px;
-    padding: 5px;
+    margin: 3px 5px;
+    padding: 3px 10px;
     border-radius: 10px;
 
     color: #979dcc;

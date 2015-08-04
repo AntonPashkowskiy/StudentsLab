@@ -11,3 +11,11 @@
     border-radius: 2px;
     border: 2px solid #3f4c99;
 }
+
+.search-input {
+    display: block;
+    width: 90%;
+
+    padding: 3px 10px;
+    border-radius: 10px;
+}

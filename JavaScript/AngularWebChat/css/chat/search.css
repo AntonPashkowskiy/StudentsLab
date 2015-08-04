@@ -1,13 +1,13 @@
 .search-area {
     display: inline-block;
     box-sizing: border-box;
-    width: 20%;
-    min-height: 565px;
+    width: 25%;
+    height: 565px;
     vertical-align: top;
 
     margin-top: 10px;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 0 10px 10px 0;
 
     background-color: #eeeeee;
     border: 1px solid #3f4c6b;
