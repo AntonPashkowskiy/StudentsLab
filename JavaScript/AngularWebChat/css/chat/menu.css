@@ -1,0 +1,16 @@
+.chat-area {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.menu {
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+
+    padding: 10px 30px;
+}
+
+.menu-items {
+    box-sizing: padding-box;
+}

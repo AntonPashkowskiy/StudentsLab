@@ -1,0 +1,28 @@
+.header {
+    padding: 10px;
+    background-color: #3f4c6b;
+}
+
+.header-title {
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 10px;
+
+    font-family: Papyrus, Herculanum, Party LET fantasy;
+    font-size: 25px;
+    font-weight: bold;
+    color: #999999;
+}
+
+.header-sign-buttons {
+    margin: 10px 0;
+}
+
+.header-registration-area {
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+
+    margin: 0 10px;
+}

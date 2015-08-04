@@ -1,0 +1,32 @@
+.form-filling-area {
+    width: 50%;
+
+    margin: 0 auto;
+    padding: 40px 5px;
+    border-radius: 0 0 10px 10px;
+
+    text-align: center;
+
+    background-color: #eeeeee;
+}
+
+.input-area {
+    width: 100%;
+    padding: 10px 0;
+}
+
+.input-name {
+    display: inline-block;
+    width: 20%;
+
+    padding: 0 20px;
+
+    text-align: left;
+    font-size: 20px;
+    color: #999999;
+}
+
+.input-field {
+    display: inline-block;
+    width: 30%;
+}

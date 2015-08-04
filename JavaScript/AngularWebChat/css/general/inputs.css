@@ -1,0 +1,13 @@
+.registration-input {
+    display: inline-block;
+    box-sizing: border-box;
+    vertical-align: top;
+
+    padding: 3px 10px;
+
+    font-size: 15px;
+    color: #3f4c6b;
+
+    border-radius: 2px;
+    border: 2px solid #3f4c99;
+}

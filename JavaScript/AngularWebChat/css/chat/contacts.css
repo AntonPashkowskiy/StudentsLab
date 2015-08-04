@@ -1,0 +1,46 @@
+.contact {
+    box-sizing: border-box;
+    width: 100%;
+
+    margin: 5px 0;
+    border-radius: 10px;
+
+    font-size: 20px;
+    color: #8a8ecc;
+
+    background-color: #e2e3ee;
+}
+
+.contact-information {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.contact-functions {
+    text-align: right;
+}
+
+.contact-name {
+    vertical-align: middle;
+    padding: 0 10px;
+}
+
+.contact-photo {
+    display: inline-block;
+    vertical-align: middle;
+
+    border-radius: 10px 0 10px 0;
+}
+
+.contact-online-status {
+    display: inline-block;
+    vertical-align: middle;
+    float: right;
+
+    margin: 0 10px;
+}
+
+.interlocutors-count {
+    float: right;
+    margin: 0 10px;
+}
