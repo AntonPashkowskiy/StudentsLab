@@ -39,15 +39,8 @@
     border-radius: 10px 0;
 }
 
-.contact-online-status {
+.contact-additional-information {
     display: block;
-    margin: 0 10px;
-	
-	font-size: 15px;
-}
-
-.interlocutors-count {
-	display: block;
     margin: 0 10px;
 	
 	font-size: 15px;

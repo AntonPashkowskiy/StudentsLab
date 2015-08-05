@@ -13,65 +13,42 @@
 <div class="menu">
     <div>
         <h2 class="contact-type">Contacts</h2>
-        <ul>
-            <li class="contact">
-                <img class="contact-photo" src="../img/default.jpg" alt="no image"/>
-                <div class="contact-information">
-                    <span class="contact-name">Contact name</span>
-                    <span class="contact-online-status">Online</span>
-                    <div class="clear-fix"></div>
-                </div>
-                <div class="contact-functions">
-                    <button class="button chat-button">-</button>
-                    <button class="button chat-button">Chat</button>
-                </div>
-            </li>
+        <ul data-ng-controller="contactsController">
+            <contact photo-src="../img/default.jpg"
+                     contact-name="Some name"
+                     additional-information="Online"
+                     remove-click=""
+                     chat-click="">
+            </contact>
         </ul>
         <h2 class="contact-type">Private chats</h2>
-        <ul>
-            <li class="contact">
-                <img class="contact-photo" src="../img/default.jpg" alt="no-image"/>
-                <div class="contact-information">
-                    <span class="contact-name">Contact othername</span>
-                    <span class="contact-online-status">Online</span>
-                </div>
-                <div class="contact-functions">
-                    <button class="button chat-button">-</button>
-                    <button class="button chat-button">Chat</button>
-                </div>
-            </li>
+        <ul data-ng-controller="privateChatsController">
+            <contact photo-src="../img/default.jpg"
+                     contact-name="Private chat name"
+                     additional-information="Online"
+                     remove-click=""
+                     chat-click="">
+            </contact>
         </ul>
         <h2 class="contact-type">Public chats</h2>
-        <ul>
-            <li class="contact">
-                <img class="contact-photo" src="../img/default.jpg" alt="no-image"/>
-                <div class="contact-information">
-                    <span class="contact-name">Contact name</span>
-                    <span class="interlocutors-count">5</span>
-                </div>
-                <div class="contact-functions">
-                    <button class="button chat-button">+</button>
-                    <button class="button chat-button">-</button>
-                    <button class="button chat-button">Chat</button>
-                </div>
-            </li>
+        <ul data-ng-controller="publicChatsController">
+            <contact photo-src="../img/default.jpg"
+                     contact-name="Public chat name"
+                     additional-information="5"
+                     remove-click=""
+                     chat-click="">
+            </contact>
         </ul>
     </div>
 </div>
 
-<div class="messages-area">
+<div class="messages-area" data-ng-controller="currentChatController">
     <ul class="recipients-list">
         <li class="recipient">Some interlocutor</li>
         <li class="recipient">Some interlocutor</li>
     </ul>
     <ul class="messages">
-        <li class="message">
-            <img class="message-sender-photo" src="../img/default.jpg" alt="no-image"/>
-            <div class="message-body">
-                <span class="message-sender-name">Sender name</span>
-                <p class="message-text">Message text</p>
-            </div>
-        </li>
+        <message ></message>
     </ul>
     <div class="messages-typing-area">
             <textarea class="text-area">
@@ -80,19 +57,10 @@
     </div>
 </div>
 
-<div class="search-area">
+<div class="search-area" data-ng-controller="searchController">
     <input class="input search-input" type="search" placeholder="search by name"/>
     <ul>
-        <li class="contact">
-            <img class="contact-photo" src="../img/default.jpg" alt="no-image"/>
-            <div class="contact-information">
-                <span class="contact-name">Contact othername</span>
-                <span class="contact-online-status">Online</span>
-            </div>
-            <div class="contact-functions">
-                <button class="button chat-button">+</button>
-            </div>
-        </li>
+        <search-result></search-result>
     </ul>
 </div>
 </article>
