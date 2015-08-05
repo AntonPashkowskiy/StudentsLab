@@ -1,0 +1,71 @@
+<div>
+<header class="header">
+    <h1 class="header-title">Web Chat</h1>
+</header>
+<form name="registrationForm" class="form-filling-area">
+    <div class="input-area">
+        <label for="first-name" class="input-name">
+            <span>First name:</span>
+        </label>
+        <input data-ng-model="data.firstName"
+               required
+               id="first-name"
+               class="input registration-input input-field"
+               type="text"
+               placeholder="first name"/>
+    </div>
+    <div class="input-area">
+        <label for="last-name" class="input-name">
+            <span>Last name:</span>
+        </label>
+        <input data-ng-model="data.lastName"
+               required
+               id="last-name"
+               class="input registration-input input-field"
+               type="text"
+               placeholder="last name"/>
+    </div>
+    <div class="input-area">
+        <label for="login" class="input-name">
+            <span>Login:</span>
+        </label>
+        <input data-ng-model="data.login"
+               required
+               id="login"
+               class="input registration-input input-field"
+               type="text"
+               placeholder="login"/>
+    </div>
+    <div class="input-area">
+        <label for="password" class="input-name">
+            <span>Password:</span>
+        </label>
+        <input data-ng-model="data.password"
+               compare-to="data.passwordConfirmation"
+               data-ng-minlength="5"
+               required
+               id="password"
+               class="input registration-input input-field"
+               type="password"
+               placeholder="password"/>
+    </div>
+    <div class="input-area">
+        <label for="confirm-password" class="input-name">
+            <span>Confirm password:</span>
+        </label>
+        <input data-ng-model="data.passwordConfirmation"
+               data-ng-minlenth="5"
+               required
+               id="confirm-password"
+               class="input registration-input input-field"
+               type="password"
+               placeholder="password"/>
+    </div>
+    <span data-ng-show="loginAlreadyExist" class="registration-fail-message">
+        This login already exist.
+    </span>
+    <button class="button account-creating-button" data-ng-click="createAccount(registrationForm)">
+        Create account
+    </button>
+</form>
+</div>

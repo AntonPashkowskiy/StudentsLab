@@ -11,6 +11,11 @@
     background-color: #e2e3ee;
 }
 
+.contact-type {
+    font-size: 20px;
+    color: #3f4c99;
+}
+
 .contact-information {
 	display: inline-block;
 	vertical-align: middle;

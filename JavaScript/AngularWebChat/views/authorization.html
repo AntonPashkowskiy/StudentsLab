@@ -1,0 +1,42 @@
+<div>
+<header class="header">
+    <h1 class="header-title">Web Chat</h1>
+    <div class="header-registration-area">
+        <div class="header-sign-buttons">
+            <button class="button registration-button"
+                    data-ng-click="signUp()">Sign up</button>
+            <button class="button registration-button"
+                    data-ng-click="logon(login, password, authorizationForm)">Sign in
+            </button>
+        </div>
+    </div>
+    <div class="clear-fix"></div>
+</header>
+<article class="form-filling-area">
+    <form name="authorizationForm">
+    <div class="input-area">
+        <label for="login" class="input-name">
+            <span>Login:</span>
+        </label>
+        <input data-ng-model="login"
+               id="login"
+               class="input registration-input input-field"
+               required
+               type="text"
+               placeholder="login"/>
+    </div>
+    <div class="input-area">
+        <label for="password" class="input-name">
+            <span>Password:</span>
+        </label>
+        <input data-ng-model="password"
+               id="password"
+               class="input registration-input input-field"
+               required
+               type="password"
+               placeholder="password"/>
+    </div>
+    <span data-ng-show="authorizationFail" class="registration-fail-message">Invalid login or password.</span>
+    </form>
+</article>
+</div>
