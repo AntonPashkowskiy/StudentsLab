@@ -10,7 +10,12 @@
         return {
             restrict: 'E',
             templateUrl: '../js/chat/templates/message.template.html',
-            replace: true
+            replace: true,
+            transclude: true,
+            scope: {
+                senderPhoto: '@',
+                senderName: '@'
+            }
         }
     });
 })();

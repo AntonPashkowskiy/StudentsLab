@@ -5,7 +5,21 @@
     'use strict';
 
     function CurrentChatController($scope) {
+        $scope.interlocutors = ['Anton', 'Leha'];
 
+        $scope.messages = [
+            {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
+            {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
+            {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
+            {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
+            {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'}
+        ];
+
+        $scope.currentMessageText = '';
+
+        $scope.send = function() {
+            $scope.currentMessageText = '';
+        };
     }
 
     var app = angular.module('ChatApp');

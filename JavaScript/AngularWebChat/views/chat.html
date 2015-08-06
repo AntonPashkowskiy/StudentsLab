@@ -2,65 +2,87 @@
     <h1 class="header-title">Web Chat</h1>
     <div class="header-registration-area">
         <div>
-            <img class="user-image" src="../img/default.jpg" alt="no image"/>
-            <p class="user-name">Some user</p>
-            <button class="button registration-button">Logout</button>
+            <img class="user-image" src="{{currentUser.photoSrc}}" alt="no image"/>
+            <p class="user-name">{{currentUser.userName}}</p>
+            <button class="button registration-button" data-ng-click="logout()">Logout</button>
         </div>
     </div>
     <div class="clear-fix"></div>
 </header>
 <article class="chat-area">
 <div class="menu">
-    <div>
+    <div data-ng-controller="searchController">
+        <input data-ng-model="searchFieldValue"
+               data-ng-focus="requestTheResults()"
+               class="input search-input"
+               type="search"
+               placeholder="search by name"/>
+
         <h2 class="contact-type">Contacts</h2>
         <ul data-ng-controller="contactsController">
-            <contact photo-src="../img/default.jpg"
-                     contact-name="Some name"
-                     additional-information="Online"
-                     remove-click=""
-                     chat-click="">
+            <contact ng-repeat="contact in contacts | filterByContactName:searchFieldValue"
+                     photo-src="{{contact.photoSrc}}"
+                     contact-name="{{contact.contactName}}"
+                     additional-information="{{contact.interlocutorsCount}}"
+                     remove-click="removeContact($index)"
+                     chat-click="startChat($index)">
             </contact>
         </ul>
+
         <h2 class="contact-type">Private chats</h2>
         <ul data-ng-controller="privateChatsController">
-            <contact photo-src="../img/default.jpg"
-                     contact-name="Private chat name"
-                     additional-information="Online"
-                     remove-click=""
-                     chat-click="">
+            <contact ng-repeat="chat in privateChats | filterByContactName:searchFieldValue"
+                     photo-src="{{chat.photoSrc}}"
+                     contact-name="{{chat.contactName}}"
+                     additional-information="{{chat.interlocutorsCount}}"
+                     remove-click="removeChat($index)"
+                     chat-click="startChat($index)">
             </contact>
         </ul>
+
         <h2 class="contact-type">Public chats</h2>
         <ul data-ng-controller="publicChatsController">
-            <contact photo-src="../img/default.jpg"
-                     contact-name="Public chat name"
-                     additional-information="5"
-                     remove-click=""
-                     chat-click="">
+            <contact ng-repeat="chat in publicChats | filterByContactName:searchFieldValue"
+                     photo-src="{{chat.photoSrc}}"
+                     contact-name="{{chat.contactName}}"
+                     additional-information="{{chat.interlocutorsCount}}"
+                     remove-click="removeChat($index)"
+                     chat-click="startChat($index)">
             </contact>
+        </ul>
+
+        <h2 class="contact-type">Search results</h2>
+        <ul>
+            <search-result ng-repeat="result in searchResults | filterByResultName:searchFieldValue"
+                           photo-src="{{result.photoSrc}}"
+                           result-name="{{result.resultName}}"
+                           result-additional-information="{{result.resultAdditionalInformation}}"
+                           add-click="add($index)">
+            </search-result>
         </ul>
     </div>
 </div>
 
 <div class="messages-area" data-ng-controller="currentChatController">
     <ul class="recipients-list">
-        <li class="recipient">Some interlocutor</li>
-        <li class="recipient">Some interlocutor</li>
+        <li class="recipient" ng-repeat="interlocutor in interlocutors">
+            {{interlocutor}}
+        </li>
     </ul>
     <ul class="messages">
-        <message ></message>
+        <message ng-repeat="message in messages"
+                 sender-photo="{{message.senderPhoto}}"
+                 sender-name="{{message.senderName}}">
+            {{message.messageText}}
+        </message>
     </ul>
     <div class="messages-typing-area">
-            <textarea class="text-area">
-            </textarea>
-        <button class="button send-button">Send</button>
+        <textarea data-ng-model="currentMessageText" class="text-area">
+        </textarea>
+        <button class="button send-button" data-ng-click="send()">Send</button>
     </div>
 </div>
 
-<div class="search-area" data-ng-controller="searchController">
-    <input class="input search-input" type="search" placeholder="search by name"/>
-    <ul>
-        <search-result></search-result>
-    </ul>
+<div class="search-area" >
 </div>
 </article>

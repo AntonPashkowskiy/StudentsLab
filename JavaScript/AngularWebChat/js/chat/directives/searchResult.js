@@ -10,7 +10,13 @@
         return {
             restrict: 'E',
             templateUrl: '../js/chat/templates/searchResult.template.html',
-            replace: true
+            replace: true,
+            scope: {
+                photoSrc: '@',
+                resultName: '@',
+                resultAdditionalInformation: '@',
+                addClick: '&'
+            }
         }
     });
 })();

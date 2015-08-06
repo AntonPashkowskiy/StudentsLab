@@ -4,10 +4,15 @@
 (function(){
     'use strict';
 
-    function ChatController($scope) {
+    function ChatController($scope, $location) {
+        $scope.currentUser = {photoSrc: '../img/pashkouski.anton.jpg', userName: 'Anton Pashkouski'};
 
+        $scope.logout = function() {
+            // service request
+            $location.path('/authorization');
+        }
     }
 
     var app = angular.module('ChatApp');
-    app.controller('chatController', ['$scope', ChatController]);
+    app.controller('chatController', ['$scope', '$location', ChatController]);
 })();

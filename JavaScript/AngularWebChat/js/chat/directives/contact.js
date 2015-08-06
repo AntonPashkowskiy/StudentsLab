@@ -15,8 +15,8 @@
                 photoSrc: '@',
                 contactName: '@',
                 additionalInformation: '@',
-                removeClick: '@',
-                chatClick: '@'
+                removeClick: '&',
+                chatClick: '&'
             }
         }
     });

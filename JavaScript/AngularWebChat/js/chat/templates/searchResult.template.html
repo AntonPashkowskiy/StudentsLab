@@ -1,10 +1,10 @@
 <li class="contact">
-    <img class="contact-photo" src="../img/default.jpg" alt="no-image"/>
+    <img class="contact-photo" src="{{photoSrc}}" alt="no-image"/>
     <div class="contact-information">
-        <span class="contact-name">Contact othername</span>
-        <span class="contact-additional-information">Online</span>
+        <span class="contact-name">{{resultName}}</span>
+        <span class="contact-additional-information">{{resultAdditionalInformation}}</span>
     </div>
     <div class="contact-functions">
-        <button class="button chat-button">+</button>
+        <button class="button chat-button" data-ng-click="addClick()">+</button>
     </div>
 </li>

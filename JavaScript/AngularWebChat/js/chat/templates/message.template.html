@@ -1,7 +1,7 @@
 <li class="message">
-    <img class="message-sender-photo" src="../img/default.jpg" alt="no-image"/>
+    <img class="message-sender-photo" src="{{senderPhoto}}" alt="no-image"/>
     <div class="message-body">
-        <span class="message-sender-name">Sender name</span>
-        <p class="message-text">Message text</p>
+        <span class="message-sender-name">{{senderName}}</span>
+        <p class="message-text" data-ng-transclude></p>
     </div>
 </li>
