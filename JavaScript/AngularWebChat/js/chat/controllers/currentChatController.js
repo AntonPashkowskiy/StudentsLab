@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function CurrentChatController($scope) {
+    function CurrentChatController($scope, $currentChatService) {
         $scope.interlocutors = ['Anton', 'Leha'];
 
         $scope.messages = [
@@ -23,5 +23,5 @@
     }
 
     var app = angular.module('ChatApp');
-    app.controller('currentChatController', ['$scope', CurrentChatController]);
+    app.controller('currentChatController', ['$scope', '$currentChatService', CurrentChatController]);
 })();

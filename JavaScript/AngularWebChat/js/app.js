@@ -16,7 +16,7 @@
             });
             $routeProvider.when('/chat', {
                 templateUrl: 'chat.html',
-                controller: 'chatController'
+                controller: 'currentUserController'
             });
             $routeProvider.otherwise({redirectTo: '/authorization'});
         }

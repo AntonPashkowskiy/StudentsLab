@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function AccountCreatingController($scope, $location) {
+    function AccountCreatingController($scope, $location, $accountService) {
         $scope.data = {
             firstName: '',
             lastName: '',
@@ -24,5 +24,5 @@
     }
 
     var app = angular.module('ChatApp');
-    app.controller('accountCreatingController', ['$scope', '$location', AccountCreatingController]);
+    app.controller('accountCreatingController', ['$scope', '$location', '$accountService', AccountCreatingController]);
 })();

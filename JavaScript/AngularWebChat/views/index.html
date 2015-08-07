@@ -14,7 +14,7 @@
     <link type="text/css" rel="stylesheet" href="../css/chat/menu.css"/>
     <link type="text/css" rel="stylesheet" href="../css/chat/contacts.css"/>
     <link type="text/css" rel="stylesheet" href="../css/chat/messages.css"/>
-    <link type="text/css" rel="stylesheet" href="../css/chat/search.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/chat/notifications.css"/>
 </head>
 <body>
     <ng-view></ng-view>
@@ -22,19 +22,26 @@
     <script src="../libs/angular-loader.min.js"></script>
     <script src="../libs/angular-route.min.js"></script>
     <script src="../js/app.js"></script>
+    <script src="../js/services/accountService.js"></script>
+    <script src="../js/services/contactsService.js"></script>
+    <script src="../js/services/currentChatService.js"></script>
+    <script src="../js/services/notificationService.js"></script>
+    <script src="../js/services/searchService.js"></script>
     <script src="../js/authorization/authorizationController.js"></script>
     <script src="../js/registration/accountCreatingController.js"></script>
     <script src="../js/registration/compareToDirective.js"></script>
-    <script src="../js/chat/controllers/chatController.js"></script>
+    <script src="../js/chat/controllers/currentUserController.js"></script>
     <script src="../js/chat/controllers/privateChatsController.js"></script>
     <script src="../js/chat/controllers/publicChatsController.js"></script>
     <script src="../js/chat/controllers/contactsController.js"></script>
     <script src="../js/chat/controllers/currentChatController.js"></script>
     <script src="../js/chat/controllers/searchController.js"></script>
+    <script src="../js/chat/controllers/notificationsController.js"></script>
     <script src="../js/chat/directives/contact.js"></script>
     <script src="../js/chat/directives/message.js"></script>
     <script src="../js/chat/directives/searchResult.js"></script>
+    <script src="../js/chat/directives/notification.js"></script>
     <script src="../js/chat/filters/filterByResultName.js"></script>
-    <script src="../js/chat/filters/filterByContactName.js"></script>
+<script src="../js/chat/filters/filterByContactName.js"></script>
 </body>
 </html>

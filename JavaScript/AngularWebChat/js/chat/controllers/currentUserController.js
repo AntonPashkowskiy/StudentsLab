@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function ChatController($scope, $location) {
+    function CurrentUserController($scope, $location, $accountService) {
         $scope.currentUser = {photoSrc: '../img/pashkouski.anton.jpg', userName: 'Anton Pashkouski'};
 
         $scope.logout = function() {
@@ -14,5 +14,5 @@
     }
 
     var app = angular.module('ChatApp');
-    app.controller('chatController', ['$scope', '$location', ChatController]);
+    app.controller('currentUserController', ['$scope', '$location', '$accountService', CurrentUserController]);
 })();

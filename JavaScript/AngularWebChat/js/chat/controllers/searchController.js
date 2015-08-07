@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function SearchController($scope) {
+    function SearchController($scope, $searchService) {
         $scope.searchFieldValue = '';
 
         $scope.searchResults = [];
@@ -23,7 +23,8 @@
             {photoSrc: '../img/default.jpg', resultName: 'Alexei Buzuma', resultAdditionalInformation: 'Online'}
         ];
 
-        $scope.add = function($index) {
+        $scope.addSearchResult = function(result) {
+            $scope.$broadcast('additionOfSearchResult', result);
         };
 
         $scope.requestTheResults = function() {
@@ -33,5 +34,5 @@
     }
 
     var app = angular.module('ChatApp');
-    app.controller('searchController', ['$scope', SearchController]);
+    app.controller('searchController', ['$scope', '$searchService', SearchController]);
 })();

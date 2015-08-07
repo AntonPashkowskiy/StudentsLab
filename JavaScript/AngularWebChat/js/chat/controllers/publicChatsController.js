@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function PublicChatsController($scope) {
+    function PublicChatsController($scope, $contactsService) {
         $scope.publicChats = [
             {photoSrc: '../img/default.jpg', contactName: 'Anton Pashkouski1', interlocutorsCount: '5'},
             {photoSrc: '../img/default.jpg', contactName: 'Anton Pashkouski2', interlocutorsCount: '4'},
@@ -14,14 +14,16 @@
             {photoSrc: '../img/default.jpg', contactName: 'Anton Pashkouski6', interlocutorsCount: '6'}
         ];
 
-        $scope.removeChat = function($index) {
-            $scope.publicChats.splice($index, 1);
+        $scope.removeChat = function(chat) {
         };
 
-        $scope.startChat = function($index) {
-        }
+        $scope.startChat = function(chat) {
+        };
+
+        $scope.$on('additionOfSearchResult', function(event, information) {
+        });
     }
 
     var app = angular.module('ChatApp');
-    app.controller('publicChatsController', ['$scope', PublicChatsController]);
+    app.controller('publicChatsController', ['$scope', '$contactsService', PublicChatsController]);
 })();

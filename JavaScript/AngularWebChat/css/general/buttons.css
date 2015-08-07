@@ -68,3 +68,8 @@
 .button.chat-button:active {
     border: 1px solid #ffd722;
 }
+
+
+.notification-button {
+    float: right;
+}

@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function AuthorizationController($scope, $location) {
+    function AuthorizationController($scope, $location, $accountService) {
         $scope.authorizationFail = false;
 
         $scope.logon = function(login, password, authorizationForm) {
@@ -19,5 +19,5 @@
     }
 
     var app = angular.module('ChatApp');
-    app.controller('authorizationController', ['$scope', '$location', AuthorizationController]);
+    app.controller('authorizationController', ['$scope', '$location', '$accountService', AuthorizationController]);
 })();

@@ -24,8 +24,8 @@
                      photo-src="{{contact.photoSrc}}"
                      contact-name="{{contact.contactName}}"
                      additional-information="{{contact.interlocutorsCount}}"
-                     remove-click="removeContact($index)"
-                     chat-click="startChat($index)">
+                     remove-click="removeContact(contact)"
+                     chat-click="startChat(contact)">
             </contact>
         </ul>
 
@@ -35,8 +35,8 @@
                      photo-src="{{chat.photoSrc}}"
                      contact-name="{{chat.contactName}}"
                      additional-information="{{chat.interlocutorsCount}}"
-                     remove-click="removeChat($index)"
-                     chat-click="startChat($index)">
+                     remove-click="removeChat(chat)"
+                     chat-click="startChat(chat)">
             </contact>
         </ul>
 
@@ -46,18 +46,18 @@
                      photo-src="{{chat.photoSrc}}"
                      contact-name="{{chat.contactName}}"
                      additional-information="{{chat.interlocutorsCount}}"
-                     remove-click="removeChat($index)"
-                     chat-click="startChat($index)">
+                     remove-click="removeChat(chat)"
+                     chat-click="startChat(chat)">
             </contact>
         </ul>
 
-        <h2 class="contact-type">Search results</h2>
+        <h2 class="contact-type" data-ng-show="searchFieldValue">Search results</h2>
         <ul>
             <search-result ng-repeat="result in searchResults | filterByResultName:searchFieldValue"
                            photo-src="{{result.photoSrc}}"
                            result-name="{{result.resultName}}"
                            result-additional-information="{{result.resultAdditionalInformation}}"
-                           add-click="add($index)">
+                           add-click="addSearchResult(result)">
             </search-result>
         </ul>
     </div>
@@ -83,6 +83,12 @@
     </div>
 </div>
 
-<div class="search-area" >
+<div class="notifications-area" >
+    <ul data-ng-controller="notificationsController">
+        <notification ng-repeat="notification in notifications"
+                      remove-click="removeNotification($index)">
+            {{notification}}
+        </notification>
+    </ul>
 </div>
 </article>

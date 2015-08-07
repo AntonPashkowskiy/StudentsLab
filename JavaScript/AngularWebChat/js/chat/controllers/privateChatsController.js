@@ -4,7 +4,7 @@
 (function(){
     'use strict';
 
-    function PrivateChatsController($scope) {
+    function PrivateChatsController($scope, $contactsService) {
         $scope.privateChats = [
             {photoSrc: '../img/default.jpg', contactName: 'Ecma Terenss', onlineStatus: 'Online'},
             {photoSrc: '../img/default.jpg', contactName: 'Sherlock Holms', onlineStatus: 'Online'},
@@ -14,14 +14,13 @@
             {photoSrc: '../img/default.jpg', contactName: 'Lol', onlineStatus: 'Online'}
         ];
 
-        $scope.removeChat = function($index) {
-            $scope.privateChats.splice($index, 1);
+        $scope.removeChat = function(chat) {
         };
 
-        $scope.startChat = function($index) {
-        }
+        $scope.startChat = function(chat) {
+        };
     }
 
     var app = angular.module('ChatApp');
-    app.controller('privateChatsController', ['$scope', PrivateChatsController]);
+    app.controller('privateChatsController', ['$scope', '$contactsService', PrivateChatsController]);
 })();

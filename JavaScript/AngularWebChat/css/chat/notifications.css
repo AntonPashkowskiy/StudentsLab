@@ -1,4 +1,4 @@
-.search-area {
+.notifications-area {
     display: inline-block;
     box-sizing: border-box;
     width: 25%;
@@ -15,4 +15,25 @@
 
     background-color: #eeeeee;
     border: 1px solid #3f4c6b;
+}
+
+.notification {
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+
+    background-color: #e2e3ee;
+}
+
+.notification-title {
+    display: inline-block;
+    margin-right: 50px;
+
+    font-size: 20px;
+    color: #3f4c99;
+}
+
+.notification-text {
+    font-size: 15px;
+    color: #333333;
 }
