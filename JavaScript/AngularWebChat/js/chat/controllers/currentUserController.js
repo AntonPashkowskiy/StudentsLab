@@ -5,12 +5,19 @@
     'use strict';
 
     function CurrentUserController($scope, $location, $accountService) {
-        $scope.currentUser = {photoSrc: '../img/pashkouski.anton.jpg', userName: 'Anton Pashkouski'};
+        $scope.currentUser = $accountService.getCurrentUser();
 
-        $scope.logout = function() {
-            // service request
+        if (!$scope.currentUser) {
             $location.path('/authorization');
         }
+
+        $scope.logout = function() {
+            $accountService.logout().then(
+                function() {
+                    $location.path('/authorization');
+                }
+            );
+        };
     }
 
     var app = angular.module('ChatApp');

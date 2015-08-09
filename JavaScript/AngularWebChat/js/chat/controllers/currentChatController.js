@@ -5,21 +5,46 @@
     'use strict';
 
     function CurrentChatController($scope, $currentChatService) {
-        $scope.interlocutors = ['Anton', 'Leha'];
-
-        $scope.messages = [
-            {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
-            {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
-            {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
-            {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
-            {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'}
-        ];
+        $scope.currentChatId = undefined;
+        $scope.interlocutors = [];
+        $scope.messages = [];
 
         $scope.currentMessageText = '';
 
         $scope.send = function() {
-            $scope.currentMessageText = '';
+            if ($scope.currentChatId !== undefined) {
+                $currentChatService.sendMessage(
+                    $scope.currentChatId,
+                    $scope.currentUser.accountId,
+                    $scope.currentMessageText
+                ).then(
+                    function() {
+                        $scope.messages.push({
+                            senderName: $scope.currentUser.firstName + ' ' + $scope.currentUser.lastName,
+                            senderPhoto: $scope.currentUser.photoSrc,
+                            messageText: $scope.currentMessageText
+                        });
+                        $scope.currentMessageText = '';
+                    }
+                );
+            }
         };
+
+        this.update = function(informationAboutChat) {
+            $scope.currentChatId = informationAboutChat.chatId;
+            $scope.interlocutors = informationAboutChat.interlocutors.map(
+                function(interlocutor) {
+                    return interlocutor.login;
+                }
+            );
+            $currentChatService.getMessages($scope.currentChatId).then(
+                function(messages) {
+                    $scope.messages = messages;
+                }
+            );
+        };
+
+        $currentChatService.attachToChatChanges(this);
     }
 
     var app = angular.module('ChatApp');

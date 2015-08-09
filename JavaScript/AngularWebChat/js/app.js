@@ -19,7 +19,6 @@
                 controller: 'currentUserController'
             });
             $routeProvider.otherwise({redirectTo: '/authorization'});
-        }
-    );
+        });
 })();
 

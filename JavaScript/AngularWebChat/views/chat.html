@@ -3,7 +3,7 @@
     <div class="header-registration-area">
         <div>
             <img class="user-image" src="{{currentUser.photoSrc}}" alt="no image"/>
-            <p class="user-name">{{currentUser.userName}}</p>
+            <p class="user-name" data-ng-bind="currentUser.firstName + ' ' + currentUser.lastName"></p>
             <button class="button registration-button" data-ng-click="logout()">Logout</button>
         </div>
     </div>
@@ -90,5 +90,4 @@
             {{notification}}
         </notification>
     </ul>
-</div>
 </article>

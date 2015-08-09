@@ -11,8 +11,7 @@
     box-sizing: border-box;
     min-width: 100%;
     max-width: 100%;
-    min-height: 400px;
-    max-height: 600px;
+    height: 400px;
 
     overflow-y: scroll;
 

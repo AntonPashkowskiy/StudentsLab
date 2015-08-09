@@ -9,7 +9,15 @@
 
         $scope.logon = function(login, password, authorizationForm) {
             if (authorizationForm.$valid) {
-                // service request
+                $accountService.logon(login, password).then(
+                    function() {
+                        $scope.authorizationFail = false;
+                        $location.path('/chat');
+                    },
+                    function() {
+                        $scope.authorizationFail = true;
+                    }
+                );
             }
         };
 

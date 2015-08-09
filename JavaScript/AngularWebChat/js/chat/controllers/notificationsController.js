@@ -5,13 +5,11 @@
     'use strict';
 
     function NotificationsController($scope, $notificationService) {
-        $scope.notifications = [
-            'Notification 1',
-            'Notification 2',
-            'Notification 3',
-            'Notification 4',
-            'Notification 5'
-        ];
+        $notificationService.getNotifications($scope.currentUser.accountId).then(
+            function(notifications) {
+                $scope.notifications = notifications;
+            }
+        );
 
         $scope.removeNotification = function($index) {
             $scope.notifications.splice($index, 1);

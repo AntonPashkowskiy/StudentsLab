@@ -4,23 +4,45 @@
 (function(){
     'use strict';
 
-    function PrivateChatsController($scope, $contactsService) {
-        $scope.privateChats = [
-            {photoSrc: '../img/default.jpg', contactName: 'Ecma Terenss', onlineStatus: 'Online'},
-            {photoSrc: '../img/default.jpg', contactName: 'Sherlock Holms', onlineStatus: 'Online'},
-            {photoSrc: '../img/default.jpg', contactName: 'Doctor Vatson', onlineStatus: 'Online'},
-            {photoSrc: '../img/default.jpg', contactName: 'Nikitin Costya', onlineStatus: 'Online'},
-            {photoSrc: '../img/default.jpg', contactName: 'Anton Pashkouski', onlineStatus: 'Online'},
-            {photoSrc: '../img/default.jpg', contactName: 'Lol', onlineStatus: 'Online'}
-        ];
+    function PrivateChatsController($scope, $contactsService, $currentChatService) {
+        $contactsService.getPrivateChats($scope.currentUser.accountId).then(
+            function(privateChats) {
+                $scope.privateChats = privateChats;
+            }
+        );
 
         $scope.removeChat = function(chat) {
+            if ($scope.privateChats) {
+                $contactsService.removeContact($scope.currentUser.accountId, chat.chatId).then(
+                    function() {
+                        var index = $scope.privateChats.indexOf(chat);
+                        $scope.privateChats.splice(index, 1);
+                    }
+                );
+            }
         };
 
         $scope.startChat = function(chat) {
+            $currentChatService.startChat(chat.chatId);
         };
+
+        this.update = function(informationAboutChat) {
+            if (informationAboutChat.type === 'created') {
+                var interlocutor = informationAboutChat.interlocutors[0];
+                interlocutor.chatId = informationAboutChat.chatId;
+
+                if ($scope.privateChats) {
+                    $scope.privateChats.push(interlocutor);
+                }
+            }
+        };
+
+        $currentChatService.attachToChatChanges(this);
     }
 
     var app = angular.module('ChatApp');
-    app.controller('privateChatsController', ['$scope', '$contactsService', PrivateChatsController]);
+    app.controller(
+        'privateChatsController',
+        ['$scope', '$contactsService', '$currentChatService', PrivateChatsController]
+    );
 })();

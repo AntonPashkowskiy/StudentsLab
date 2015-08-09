@@ -17,8 +17,16 @@
 
         $scope.createAccount = function(registrationForm) {
             if (registrationForm.$valid) {
-                // service request
-                $location.path('/chat');
+                $accountService.createAccount(
+                    $scope.data.firstName,
+                    $scope.data.lastName,
+                    $scope.data.login,
+                    $scope.data.password
+                ).then(
+                    function() {
+                        $location.path('/chat');
+                    }
+                );
             }
         }
     }
