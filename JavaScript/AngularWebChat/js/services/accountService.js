@@ -4,22 +4,13 @@
 (function(){
     'use strict';
 
-    function AccountService($q) {
+    function AccountService($q, $serverEmulator) {
         var self = this;
         var user = null;
 
         self.createAccount = function(firstName, lastName, login, password) {
             var deferred = $q.defer();
-
-            // request to server
-            user = {
-                accountId: 123,
-                firstName: firstName,
-                lastName: lastName,
-                login: login,
-                photoSrc: '../img/default.jpg'
-            };
-            //
+            user = $serverEmulator.createAccount(firstName, lastName, login, password);
 
             if (user) {
                 deferred.resolve();
@@ -31,15 +22,7 @@
 
         self.logon = function(login, password) {
             var deferred = $q.defer();
-            // request to server
-            user = {
-                accountId: 123,
-                firstName: 'Jack',
-                lastName: 'Krouford',
-                login: 'Himera',
-                photoSrc: '../img/default.jpg'
-            };
-            //
+            user = $serverEmulator.logon(login, password);
 
             if (user) {
                 deferred.resolve();
@@ -51,10 +34,9 @@
 
         self.logout = function() {
             var deferred = $q.defer();
-            // request to server
-            var isSuccess = true;
+            var success = $serverEmulator.logout();
 
-            if (isSuccess) {
+            if (success) {
                 deferred.resolve();
                 user = null;
             } else {
@@ -76,5 +58,5 @@
     }
 
     var app = angular.module('ChatApp');
-    app.service('$accountService', ['$q', AccountService]);
+    app.service('$accountService', ['$q', '$serverEmulator', AccountService]);
 })();

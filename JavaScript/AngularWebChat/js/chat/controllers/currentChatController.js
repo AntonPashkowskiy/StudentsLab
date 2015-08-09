@@ -4,11 +4,10 @@
 (function(){
     'use strict';
 
-    function CurrentChatController($scope, $currentChatService) {
+    function CurrentChatController($scope, $currentChatService, $contactsService) {
         $scope.currentChatId = undefined;
         $scope.interlocutors = [];
         $scope.messages = [];
-
         $scope.currentMessageText = '';
 
         $scope.send = function() {
@@ -44,9 +43,22 @@
             );
         };
 
+        this.check = function(chatId) {
+            if (chatId === $scope.currentChatId) {
+                $scope.currentChatId = undefined;
+                $scope.interlocutors = [];
+                $scope.messages = [];
+                $scope.currentMessageText = '';
+            }
+        };
+
         $currentChatService.attachToChatChanges(this);
+        $contactsService.attachToChatRemoves(this);
     }
 
     var app = angular.module('ChatApp');
-    app.controller('currentChatController', ['$scope', '$currentChatService', CurrentChatController]);
+    app.controller(
+        'currentChatController',
+        ['$scope', '$currentChatService', '$contactsService', CurrentChatController]
+    );
 })();

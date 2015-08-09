@@ -77,7 +77,7 @@
         </message>
     </ul>
     <div class="messages-typing-area">
-        <textarea data-ng-model="currentMessageText" class="text-area">
+        <textarea data-ng-model="currentMessageText" class="text-area" ng-trim="false">
         </textarea>
         <button class="button send-button" data-ng-click="send()">Send</button>
     </div>

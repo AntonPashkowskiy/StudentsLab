@@ -4,19 +4,12 @@
 (function(){
     'use strict';
 
-    function NotificationsService($q) {
+    function NotificationsService($q, $serverEmulator) {
         var self = this;
 
         self.getNotifications = function(accountId) {
             var deferred = $q.defer();
-            // request to server
-            var notifications = [
-                'Notification 1',
-                'Notification 2',
-                'Notification 3',
-                'Notification 4',
-                'Notification 5'
-            ];
+            var notifications = $serverEmulator.getNotifications(accountId);
 
             if (notifications) {
                 deferred.resolve(notifications);
@@ -28,5 +21,5 @@
     }
 
     var app = angular.module('ChatApp');
-    app.service('$notificationsService', ['$q', NotificationsService]);
+    app.service('$notificationsService', ['$q', '$serverEmulator', NotificationsService]);
 })();

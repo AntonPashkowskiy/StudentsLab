@@ -4,11 +4,11 @@
 (function(){
     'use strict';
 
-    function CurrentChatService($q) {
+    function CurrentChatService($q, $serverEmulator) {
         var self = this;
         var chatChangesObservers = [];
 
-        var notifyAll = function(information) {
+        var notifyAllAboutChanges = function(information) {
             chatChangesObservers.forEach(function(observer) {
                 observer.update(information);
             });
@@ -22,22 +22,11 @@
 
         self.createChat = function(accountId, interlocutorAccountId) {
             var deferred = $q.defer();
-            //request to server
-            var informationAboutChat = {
-                type: 'created',
-                chatId: 123,
-                interlocutors: [{
-                        login: 'Anton',
-                        photoSrc: '../img/default.jpg',
-                        contactName: 'Created contact',
-                        onlineStatus: 'Online'
-                    }
-                ]
-            };
+            var informationAboutChat = $serverEmulator.createChat(accountId, interlocutorAccountId);
 
             if (informationAboutChat) {
                 deferred.resolve();
-                notifyAll(informationAboutChat);
+                notifyAllAboutChanges(informationAboutChat);
             } else {
                 deferred.reject();
             }
@@ -46,16 +35,11 @@
 
         self.startChat = function(charId) {
             var deferred = $q.defer();
-            //request to server
-            var informationAboutChat = {
-                type: 'existed',
-                chatId: 123,
-                interlocutors: [{login: 'Anton'},{login: 'Leha'}]
-            };
+            var informationAboutChat = $serverEmulator.getInformationAboutChat(charId);
 
             if (informationAboutChat) {
                 deferred.resolve();
-                notifyAll(informationAboutChat);
+                notifyAllAboutChanges(informationAboutChat);
             } else {
                 deferred.reject();
             }
@@ -64,14 +48,7 @@
 
         self.getMessages = function(chatId) {
             var deferred = $q.defer();
-            //request to server
-            var messages = [
-                {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
-                {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
-                {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
-                {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
-                {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'}
-            ];
+            var messages = $serverEmulator.getMessages(chatId);
 
             if (messages) {
                 deferred.resolve(messages);
@@ -83,9 +60,7 @@
 
         self.sendMessage = function(chatId) {
             var deferred = $q.defer();
-
-            //request to server
-            var success = true;
+            var success = $serverEmulator.sendMessage(chatId);
 
             if (success) {
                 deferred.resolve();
@@ -97,5 +72,5 @@
     }
 
     var app = angular.module('ChatApp');
-    app.service('$currentChatService', ['$q', CurrentChatService]);
+    app.service('$currentChatService', ['$q', '$serverEmulator', CurrentChatService]);
 })();
