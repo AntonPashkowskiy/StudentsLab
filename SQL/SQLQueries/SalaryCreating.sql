@@ -1,0 +1,19 @@
+USE TrainingDB
+GO
+
+CREATE TABLE Salary
+(
+	EmployeeId int NOT NULL FOREIGN KEY REFERENCES Employee(Id),
+	Month int NOT NULL,
+	Year int NOT NULL,
+	Salary int NOT NULL
+);
+
+
+ALTER TABLE Salary 
+ADD CONSTRAINT CheckMonth CHECK(Month BETWEEN 1 AND 12);
+GO
+
+ALTER TABLE Salary
+ADD CONSTRAINT CheckYear CHECK(Year BETWEEN 2002 AND 2016)
+GO
