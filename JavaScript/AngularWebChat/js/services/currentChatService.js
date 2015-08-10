@@ -58,9 +58,9 @@
             return deferred.promise;
         };
 
-        self.sendMessage = function(chatId) {
+        self.sendMessage = function(chatId, senderAccountId, messageText) {
             var deferred = $q.defer();
-            var success = $serverEmulator.sendMessage(chatId);
+            var success = $serverEmulator.sendMessage(chatId, senderAccountId, messageText);
 
             if (success) {
                 deferred.resolve();

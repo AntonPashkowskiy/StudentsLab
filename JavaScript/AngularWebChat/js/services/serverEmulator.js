@@ -94,16 +94,29 @@
         };
 
         self.getMessages = function(chatId) {
-            return [
-                {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
-                {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
-                {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
-                {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'},
-                {senderPhoto: '../img/default.jpg', senderName: 'Anton Pashkouski', messageText: 'Some message text'}
-            ];
+            var messagesJSON = localStorage.getItem('messages');
+
+            if (messagesJSON) {
+                return JSON.parse(messagesJSON);
+            }
+            return [];
         };
 
-        self.sendMessage = function(chatId) {
+        self.sendMessage = function(chatId, senderAccountId, messageText) {
+            var messagesJSON = localStorage.getItem('messages');
+            var messages = [];
+            var message = {
+                senderPhoto: '../img/default.jpg',
+                senderName: 'Anton Pashkouski',
+                messageText: messageText
+            };
+
+            if (messagesJSON) {
+                messages = JSON.parse(messagesJSON);
+            }
+            messages.push(message);
+            localStorage.setItem('messages', JSON.stringify(messages));
+
             return true;
         };
 
