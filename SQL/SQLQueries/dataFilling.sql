@@ -24,7 +24,18 @@ VALUES
 (12, 3, 2014, 700),
 (11, 3, 2014, 700),
 (2, 3, 2014, 700),
-(3, 3, 2014, 700);
+(3, 3, 2014, 700),
+(11, 5, 2015, 2100),
+(2, 5, 2015, 1000),
+(3, 5, 2015, 800),
+(4, 5, 2015, 200),
+(5, 5, 2015, 1100),
+(6, 5, 2015, 1000),
+(7, 5, 2015, 700),
+(12, 5, 2014, 700),
+(11, 5, 2014, 700),
+(2, 5, 2014, 700),
+(3, 5, 2014, 700);
 GO
 
 INSERT INTO Career(EmployeeId, JobName, DepartamentId, DateOfHiring, DateOfDismissal)
@@ -48,7 +59,9 @@ VALUES
 ('Manager', 1000),
 ('HR', 900),
 ('Programmer', 1500),
-('QA worker', 1100);
+('QA worker', 1100),
+('Cleaner', 400),
+('Electric', 500);
 GO
 
 INSERT INTO Employee(Name, Surname, DateOfBirth)
