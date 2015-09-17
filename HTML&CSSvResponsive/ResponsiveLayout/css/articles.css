@@ -1,0 +1,143 @@
+/* Columns ----------------------------------------*/
+.column {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.column.main-column {
+    vertical-align: top;
+}
+
+/* Articles ---------------------------------------*/
+.article {
+    box-sizing: border-box;
+
+    padding: 0 20px;
+}
+
+.article-title {
+    margin: 15px;
+
+    font-family: Times, Palatino, serif;
+    font-size: 25px;
+    font-weight: bold;
+
+    border-bottom: 1px dotted #8A958D;
+}
+
+.article-title.main-article-title {
+    font-size: 30px;
+}
+
+.article-image {
+    display: inline-block;
+    max-width: 100%;
+
+    margin: 15px 0;
+}
+
+.article-image.main-article-image {
+    float: left;
+    margin: 0 15px 15px 0;
+}
+
+.article-image:hover {
+    -webkit-box-shadow: 0 0 8px 0 rgba(24,128,240,1);
+    -moz-box-shadow: 0 0 8px 0 rgba(24,128,240,1);
+    box-shadow: 0 0 8px 0 rgba(24,128,240,1);
+}
+
+.article-text {
+    padding-bottom: 20px;
+
+    font-family: Times, Palatino, serif;
+    font-size: 18px;
+    text-indent: 20px;
+    word-wrap: break-word;
+}
+
+.article-list {
+    margin-left: 15px;
+    list-style: circle;
+}
+
+/* Footer -----------------------------------------*/
+.footer {
+    box-sizing: border-box;
+    padding: 15px;
+
+    font-family: Times, Palatino, serif;
+    font-size: 15px;
+    color: #8A958D;
+
+    border-top: 2px solid #8A958D;
+}
+
+@media (max-width: 532px) {
+    .articles {
+        background-image: none;
+    }
+
+    .column {
+        display: block;
+    }
+
+    .column.main-column {
+        width: 100%;
+    }
+
+    .column.right-column {
+        float: none;
+        width: 100%;
+    }
+
+    .column.left-column {
+        float: none;
+        width: 100%;
+    }
+}
+
+@media (min-width: 533px) and (max-width: 1023px) {
+    .articles {
+        background-image: linear-gradient(to left, #B3CACC 0%, #B3CACC 30%, #E8F8FF 30%, #E8F8FF 100%);
+    }
+
+    .column.main-column {
+        width: 69.77%;
+    }
+
+    .column.left-column {
+        float: left;
+        width: 69.77%;
+    }
+
+    .column.right-column {
+        float: right;
+        width: 30%;
+    }
+
+    .article-title.main-article-title {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .articles {
+        background-image: linear-gradient(to left, #B3CACC 0%, #B3CACC 20%, #E8F8FF 20%, #E8F8FF 80%, #B3CACC 80%, #B3CACC 100%);
+    }
+
+    .column.main-column {
+        width: 59.77%;
+    }
+
+    .column.right-column {
+        float: right;
+        clear: left;
+        width: 20%;
+    }
+
+    .column.left-column {
+        float: left;
+        width: 20%;
+    }
+}

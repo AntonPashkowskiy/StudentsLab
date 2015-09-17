@@ -1,0 +1,41 @@
+.banner {
+    position: relative;
+    min-height: 70px;
+
+    background-color: #00072B;
+}
+
+.title {
+    display: inline-block;
+    vertical-align: middle;
+
+    padding: 30px 15px;
+
+    font-family: Times, Palatino, serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: #FFFFFF;
+
+}
+
+.logo {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+@media (max-width: 320px) {
+    .title {
+        padding: 5px 7px;
+
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 533px) {
+    .title {
+        padding: 10px 13px;
+
+        font-size: 35px;
+    }
+}

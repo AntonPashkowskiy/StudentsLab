@@ -1,0 +1,9 @@
+.layout {
+    background-color: #E8F8FF;
+}
+
+.clear-fix {
+    content: '';
+    visibility: hidden;
+    clear: both;
+}
